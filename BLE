@@ -1,0 +1,184 @@
+#include "real_bluetooth.h"
+#include <bluetooth.h>
+#include <dlog.h>
+#include <app_control.h>
+#include <stdio.h>
+#include <math.h>
+#include <string.h>
+#include <Elementary.h>
+#include <json-glib/json-glib.h>
+
+void
+__bt_adapter_le_scan_result_cb(int result, bt_adapter_le_device_scan_result_info_s *info, void *user_data)
+{
+
+	int i;
+	bt_error_e ret;
+	ret = bt_initialize();
+
+	bt_adapter_le_packet_type_e pkt_type = BT_ADAPTER_LE_PACKET_ADVERTISING;
+
+	if (info == NULL) {
+		dlog_print(DLOG_INFO, LOG_TAG, "No discovery_info!");
+
+		return;
+	} else {
+		//dlog_print(DLOG_INFO, LOG_TAG, "some info found");
+
+	}
+
+	if (info->adv_data_len > 31 || info->scan_data_len > 31) {
+		dlog_print(DLOG_INFO, LOG_TAG, "###################");
+		bt_adapter_le_stop_scan();
+		dlog_print(DLOG_INFO, LOG_TAG, "###################");
+
+		return;
+	}
+
+	for (i = 0; i < 2; i++) {
+		char **uuids;
+		char *device_name;
+		int tx_power_level;
+		bt_adapter_le_service_data_s *data_list;
+		int appearance;
+		int manufacturer_id;
+		char *manufacturer_data;
+		int manufacturer_data_len;
+		int count;
+
+		pkt_type += i;
+		if (pkt_type
+				== BT_ADAPTER_LE_PACKET_ADVERTISING&& info->adv_data == NULL)
+			continue;
+		if (pkt_type
+				== BT_ADAPTER_LE_PACKET_SCAN_RESPONSE&& info->scan_data == NULL)
+			break;
+
+		if (bt_adapter_le_get_scan_result_service_uuids(info, pkt_type, &uuids, &count) == BT_ERROR_NONE) {
+			int i;
+			for (i = 0; i < count; i++) {
+				dlog_print(DLOG_INFO, LOG_TAG, "UUID[%d] = %s", i + 1, uuids[i]);
+				dlog_print(DLOG_INFO, LOG_TAG, "RSSI[%d] = %d", i + 1, info->rssi);
+				double RSSI = info->rssi;
+				if (bt_adapter_le_get_scan_result_tx_power_level(info, pkt_type, &tx_power_level) == BT_ERROR_NONE) {
+					double n = 2.0;
+					double D;
+					D = pow(10, (tx_power_level-RSSI) / (10*n));
+					//dlog_print(DLOG_INFO, LOG_TAG, "Distance[%d] = %d", i + 1, D);
+					//dlog_print(DLOG_INFO, LOG_TAG, "TX Power level = %d",tx_power_level);
+					}
+				g_free(uuids[i]);
+			}
+			g_free(uuids);
+		}
+		if (bt_adapter_le_get_scan_result_device_name(info, pkt_type,
+				&device_name) == BT_ERROR_NONE) {
+			//dlog_print(DLOG_INFO, LOG_TAG, "Device name = %s", device_name);
+			//dlog_print(DLOG_INFO, LOG_TAG, "Addresse = %s", info->remote_address);
+			char *addr = NULL;
+			//dlog_print(DLOG_INFO, LOG_TAG, "Comparing");
+			if (strcmp(info->remote_address, "C9:D4:67:84:5C:E7") == 0) {
+				dlog_print(DLOG_INFO, LOG_TAG, "Got our device");
+				bt_adapter_le_stop_scan();
+				ret = bt_gatt_connect("xx:xx:xx:xx:xx:xx", false);
+				if (ret != BT_ERROR_NONE) {
+					dlog_print(DLOG_INFO, LOG_TAG, "Failed to connect LE device.");
+				} else {
+					dlog_print(DLOG_INFO, LOG_TAG, "Connected to our LE device.");
+					//ret = bt_gatt_client_create("xx:xx:xx:xx:xx:xx", &client);
+					if (ret == BT_ERROR_NONE) {
+						dlog_print(DLOG_INFO, LOG_TAG, "Client created");
+						//ret = bt_gatt_client_get_remote_address(client, &addr);
+						if (ret == BT_ERROR_NONE)
+							dlog_print(DLOG_INFO, LOG_TAG, "Success");
+
+						//ret = bt_gatt_client_foreach_services(client, __bt_gatt_client_foreach_svc_cb, NULL);
+						if (ret != BT_ERROR_NONE) {
+							dlog_print(DLOG_INFO, LOG_TAG, "fail to read services");
+						}
+						char *svc_uuid = "0000180f-0000-1000-8000-00805f9b34fb"; // Battery service
+						char *chr_uuid = "00002a19-0000-1000-8000-00805f9b34fb"; // Battery level
+						char *desc_uuid = "058e3555-f52f-8f88-870d-67ce119e315c"; // Client characteristic configuration
+						bt_gatt_h svc = NULL;
+						bt_gatt_h chr = NULL;
+						bt_gatt_h desc = NULL;
+
+						//ret = bt_gatt_client_get_service(client, svc_uuid,&svc);
+						if (ret != BT_ERROR_NONE) {
+							dlog_print(DLOG_INFO, LOG_TAG,"bt_gatt_client_get_service is failed : %d",ret);
+
+						} else {
+							dlog_print(DLOG_INFO, LOG_TAG, "bt_gatt_client_get_service is success ");
+						}
+
+						ret = bt_gatt_service_get_characteristic(svc, chr_uuid,
+								&chr);
+						if (ret != BT_ERROR_NONE) {
+							dlog_print(DLOG_INFO, LOG_TAG, "bt_gatt_service_get_characteristic is failed : %d",ret);
+						} else {
+							dlog_print(DLOG_INFO, LOG_TAG, "bt_gatt_client_get_char is success :");
+						}
+						*svc_uuid = "058e0555-f52f-8f88-870d-67ce119e315c";
+						ret = bt_gatt_service_get_characteristic(svc, chr_uuid,
+								&chr);
+						if (ret != BT_ERROR_NONE) {
+							dlog_print(DLOG_INFO, LOG_TAG, "bt_gatt_service_get_characteristic is failed : %d", ret);
+
+						} else {
+							dlog_print(DLOG_INFO, LOG_TAG, "bt_gatt_client_getc is success");
+						}
+						ret = bt_gatt_characteristic_get_descriptor(chr,
+								desc_uuid, &desc);
+						if (ret != BT_ERROR_NONE) {
+							dlog_print(DLOG_INFO, LOG_TAG, "bt_gatt_characteristic_get_descriptor is failed : %d", ret);
+
+						} else {
+							dlog_print(DLOG_INFO, LOG_TAG, "bt_gatt_characteristic_get_descriptor success");
+						}
+
+					}
+				}
+			}
+			g_free(device_name);
+		}
+		if (bt_adapter_le_get_scan_result_tx_power_level(info, pkt_type,
+				&tx_power_level) == BT_ERROR_NONE) {
+			//dlog_print(DLOG_INFO, LOG_TAG, "TX Power level = %d",tx_power_level);
+		}
+		if (bt_adapter_le_get_scan_result_service_solicitation_uuids(info,
+				pkt_type, &uuids, &count) == BT_ERROR_NONE) {
+			int i;
+			for (i = 0; i < count; i++) {
+				dlog_print(DLOG_INFO, LOG_TAG, "Solicitation UUID[%d] = %s", i + 1, uuids[i]);
+				g_free(uuids[i]);
+			}
+			g_free(uuids);
+		}
+		if (bt_adapter_le_get_scan_result_service_data_list(info, pkt_type,
+				&data_list, &count) == BT_ERROR_NONE) {
+			int i;
+			for (i = 0; i < count; i++){
+				//dlog_print(DLOG_INFO, LOG_TAG,
+				//"Service Data[%d] = [0x%2.2X%2.2X:0x%.2X...]", i + 1,
+				//data_list[i].service_uuid[0],
+				//data_list[i].service_uuid[1],
+				//data_list[i].service_data[0]);
+			}
+			bt_adapter_le_free_service_data_list(data_list, count);
+		}
+		if (bt_adapter_le_get_scan_result_appearance(info, pkt_type,
+				&appearance) == BT_ERROR_NONE) {
+			//dlog_print(DLOG_INFO, LOG_TAG, "Appearance = %d", appearance);
+		}
+		if (bt_adapter_le_get_scan_result_manufacturer_data(info, pkt_type,
+				&manufacturer_id, &manufacturer_data, &manufacturer_data_len)
+				== BT_ERROR_NONE) {
+			//dlog_print(DLOG_INFO, LOG_TAG,
+			//"Manufacturer data[ID:%.4X, 0x%.2X%.2X...(len:%d)]",
+			//manufacturer_id, manufacturer_data[0], manufacturer_data[1],
+			//manufacturer_data_len);
+			g_free(manufacturer_data);
+		}
+
+	}
+}
