@@ -15,6 +15,7 @@
 &nbsp;
 
 ## 1. 소프트웨어 구성도 (background~front)
+(1) Front-end 구상도
 <img width="1000" alt="스크린샷 2020-08-28 오후 9 07 11" src="https://user-images.githubusercontent.com/49704910/91559176-8b401e00-e972-11ea-9fa7-6212cb05961b.png">
 
 작성중 
