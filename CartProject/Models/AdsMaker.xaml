@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:CartProject.MarkupExtensions"
+             x:Class="CartProject.Models.AdsMaker">
+    <ContentPage.Content>
+        <StackLayout Margin="20">
+
+            <Button Text ="생성" Clicked="OnSaveButtonClicked"/>
+            <Editor Placeholder="Enter text"
+                Text="{Binding Text}"
+                HeightRequest="100" />
+            <Image x:Name="ads_1_test"
+                   Source="{local:EmbeddedImage ResourceId=CartProject.Data.Images_Ads.ads_1_test.png}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
