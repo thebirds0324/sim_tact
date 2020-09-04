@@ -14,12 +14,16 @@
 &nbsp;
 &nbsp;
 
-## 1. 소프트웨어 구성도 (background~front)
+## 1. diagram (background~front)
 (1) Front-end 구상도
 <img width="1000" alt="스크린샷 2020-08-28 오후 9 07 11" src="https://user-images.githubusercontent.com/49704910/91559176-8b401e00-e972-11ea-9fa7-6212cb05961b.png">
 
 작성중 
 
+(2) architecture
+<p align="center">
+<img width="659" alt="스크린샷 2020-09-04 오후 7 16 09" src="https://user-images.githubusercontent.com/49704910/92228605-20976100-eee3-11ea-950f-46775e965a27.png">
+  </p>
 
 ## 2. 기능
 ### 1. 위치 기반의 물품 추천 시스템
