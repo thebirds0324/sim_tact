@@ -30,7 +30,7 @@ namespace CartProject.Models
             using (BinaryReader reader=new BinaryReader(fileStream))
             {
                 imageByteArray=new byte[reader.BaseStream.Length];
-                for(int i=0;i&lt;reader.BaseStream.Length;i++)
+                for(int i=0;i<reader.BaseStream.Length;i++)
                     {
                         imageByteArray[i]=reader.ReadByte();
                     }
@@ -44,14 +44,17 @@ namespace CartProject.Models
             {
                 Random random = new Random();
                 var ads = new Ads();
+                string filePath = @"C:\Users\Younggeon Park\source\repos\thebirds0324\sim_tact\CartProject\Data\Images_Ads\Image0.png";
+                byte[] result=ConvertImageToByteArray(filePath);
 
                 // Initialize 하기
                 ads.Section = random.Next(0, 2);
                 ads.Text = "Test Text #" + i;
 
-                string filePath = "local:EmbeddedImage ResourceId=CartProject.Data.Images_Ads.ads_1_test.png";
-                byte[] result=ConvertImageToByteArray(filepath);
+                //string filePath = "local:EmbeddedImage ResourceId=CartProject.Data.Images_Ads.ads_1_test.png";
+                
 
+                ads.Image = result;
                 
                 await App.Database_Ads.SaveAdsAsync(ads);
             }
