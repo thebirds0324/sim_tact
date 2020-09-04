@@ -23,7 +23,20 @@ namespace CartProject.Models
             InitializeComponent();
         }
 
-        
+        public static byte[] ConvertImageToByteArray(string filepath)
+        {
+            byte[] imageByteArray=null;
+            FileStream fileStream=new FileStream(filepath, FileMode.Open, FileAccess.Read);
+            using (BinaryReader reader=new BinaryReader(fileStream))
+            {
+                imageByteArray=new byte[reader.BaseStream.Length];
+                for(int i=0;i&lt;reader.BaseStream.Length;i++)
+                    {
+                        imageByteArray[i]=reader.ReadByte();
+                    }
+            }
+            return imageByteArray;
+        }
 
         async void OnSaveButtonClicked(object sender, EventArgs e)
         {
@@ -37,15 +50,7 @@ namespace CartProject.Models
                 ads.Text = "Test Text #" + i;
 
                 string filePath = "local:EmbeddedImage ResourceId=CartProject.Data.Images_Ads.ads_1_test.png";
-                byte[] bmp = null;
-
-                Image image=Image.Fromfile(filepath);
-
-                var ms=new MemoryStream();
-                image.Save(ms,System.Drawing.Imaging.ImageFormat.Jpeg);
-
-                var bytes=ms.ToArray();
-                ads.Image = bytes;
+                byte[] result=ConvertImageToByteArray(filepath);
 
                 
                 await App.Database_Ads.SaveAdsAsync(ads);
