@@ -1,184 +1,429 @@
-#include "real_bluetooth.h"
+#include <tizen.h>
+#include <service_app.h>
+#include "real_ble.h"
 #include <bluetooth.h>
 #include <dlog.h>
-#include <app_control.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <math.h>
 #include <string.h>
-#include <Elementary.h>
 #include <json-glib/json-glib.h>
+#include <Ecore.h>
+#include "thingspark.h"
+#include "log.h"
+
+Ecore_Timer *timer;
+
+// Print error on the log
+static void
+Error_check(int ret)
+{
+   /*Error Check*/
+   char err[100];
+
+   //No Error
+   if (ret == BT_ERROR_NONE) {
+      sprintf(err, "%s", "BT_ERROR_NONE");
+   }
+
+   //Error List
+   else if(ret == BT_ERROR_CANCELLED){
+      sprintf(err, "%s", "BT_ERROR_CANCELLED");
+   }
+   else if(ret == BT_ERROR_INVALID_PARAMETER){
+      sprintf(err, "%s", "BT_ERROR_INVALID_PARAMETER");
+   }
+   else if(ret == BT_ERROR_OUT_OF_MEMORY){
+      sprintf(err, "%s", "BT_ERROR_OUT_OF_MEMORY");
+   }
+   else if(ret == BT_ERROR_RESOURCE_BUSY){
+      sprintf(err, "%s", "BT_ERROR_RESOURCE_BUSY");
+   }
+   else if(ret == BT_ERROR_TIMED_OUT){
+      sprintf(err, "%s", "BT_ERROR_TIMED_OUT");
+   }
+   else if(ret == BT_ERROR_NOW_IN_PROGRESS){
+      sprintf(err, "%s", "BT_ERROR_NOW_IN_PROGRESS");
+   }
+   else if(ret == BT_ERROR_NOT_SUPPORTED){
+      sprintf(err, "%s", "BT_ERROR_NOT_SUPPORTED");
+   }
+   else if(ret == BT_ERROR_PERMISSION_DENIED){
+      sprintf(err, "%s", "BT_ERROR_PERMISSION_DENIED");
+   }
+   else if(ret == BT_ERROR_QUOTA_EXCEEDED){
+      sprintf(err, "%s", "BT_ERROR_QUOTA_EXCEEDED");
+   }
+   else if(ret == BT_ERROR_NO_DATA){
+      sprintf(err, "%s", "BT_ERROR_NO_DATA");
+   }
+   else if(ret == BT_ERROR_DEVICE_POLICY_RESTRICTION){
+      sprintf(err, "%s", "BT_ERROR_DEVICE_POLICY_RESTRICTION");
+   }
+   else if(ret == BT_ERROR_NOT_INITIALIZED){
+      sprintf(err, "%s", "BT_ERROR_NOT_INITIALIZED");
+   }
+   else if(ret==BT_ERROR_NOT_ENABLED){
+      sprintf(err, "%s", "BT_ERROR_NOT_ENABLED");
+   }
+   else if(ret==BT_ERROR_ALREADY_DONE){
+      sprintf(err, "%s", "BT_ERROR_ALREADY_DONE");
+   }
+   else if(ret==BT_ERROR_OPERATION_FAILED){
+      sprintf(err, "%s", "BT_ERROR_OPERATION_FAILED");
+   }
+   else if(ret==BT_ERROR_NOT_IN_PROGRESS){
+      sprintf(err, "%s", "BT_ERROR_NOT_IN_PROGRESS");
+   }
+   else if(ret==BT_ERROR_REMOTE_DEVICE_NOT_BONDED){
+      sprintf(err, "%s", "BT_ERROR_REMOTE_DEVICE_NOT_BONDED");
+   }
+   else if(ret==BT_ERROR_AUTH_REJECTED){
+      sprintf(err, "%s", "BT_ERROR_AUTH_REJECTED");
+   }
+   else if(ret==BT_ERROR_AUTH_FAILED){
+      sprintf(err, "%s", "BT_ERROR_AUTH_FAILED");
+   }
+   else if(ret==BT_ERROR_REMOTE_DEVICE_NOT_FOUND){
+      sprintf(err, "%s", "BT_ERROR_REMOTE_DEVICE_NOT_FOUND");
+   }
+   else if(ret==BT_ERROR_SERVICE_SEARCH_FAILED){
+      sprintf(err, "%s", "BT_ERROR_SERVICE_SEARCH_FAILED");
+   }
+   else if(ret==BT_ERROR_REMOTE_DEVICE_NOT_CONNECTED){
+      sprintf(err, "%s", "BT_ERROR_REMOTE_DEVICE_NOT_CONNECTED");
+   }
+   else if(ret==BT_ERROR_AGAIN){
+      sprintf(err, "%s", "BT_ERROR_AGAIN");
+   }
+   else if(ret==BT_ERROR_SERVICE_NOT_FOUND){
+      sprintf(err, "%s", "BT_ERROR_SERVICE_NOT_FOUND");
+   }
+   else if(ret==BT_ERROR_AUTHORIZATION_REJECTED){
+      sprintf(err, "%s", "BT_ERROR_AUTHORIZATION_REJECTED");
+   }
+
+   //Undefined Error
+   else{
+      sprintf(err, "%s", "Undefined Error");
+   }
+
+   dlog_print(DLOG_INFO, LOG_TAG, err);
+}
+
+int ind = 0;			// Index of stack
+int _key = 0;			// UUID with the shortest distance at one time
+double key_D = 2.0;		// Distance of key
+char **uuids;			// Each BLE UUID
+char *uuid;				// Save uuids
+int count;				// Input
+double n = 2.0;			// Constant (radio wave loss)
+int tx = -65;			// TX power level
+int stack[100] = {0, };	// Group of UUID recieved at one time
+double threshold = 2.0;	// Distance threshold
+int num = 0;			// For type conversion
+double distance = 0;	// Each BLE distance
+int AREA;				// Area return value
 
 void
 __bt_adapter_le_scan_result_cb(int result, bt_adapter_le_device_scan_result_info_s *info, void *user_data)
 {
 
-	int i;
-	bt_error_e ret;
-	ret = bt_initialize();
+   bt_error_e ret;
+   bt_adapter_le_packet_type_e pkt_type = BT_ADAPTER_LE_PACKET_ADVERTISING;
 
-	bt_adapter_le_packet_type_e pkt_type = BT_ADAPTER_LE_PACKET_ADVERTISING;
+   if (info->adv_data_len > 31 || info->scan_data_len > 31) {
+      dlog_print(DLOG_INFO, LOG_TAG, "###################");
+      bt_adapter_le_stop_scan();
+      dlog_print(DLOG_INFO, LOG_TAG, "###################");
 
-	if (info == NULL) {
-		dlog_print(DLOG_INFO, LOG_TAG, "No discovery_info!");
+      return;
+   }
 
-		return;
-	} else {
-		//dlog_print(DLOG_INFO, LOG_TAG, "some info found");
+      pkt_type += 1;
 
+      // Get UUID and distance
+      if (bt_adapter_le_get_scan_result_service_uuids(info, pkt_type, &uuids, &count) == BT_ERROR_NONE)
+      {
+    	  uuid = uuids[0];
+    	  distance = pow(10, ((tx-info->rssi) / (10*n)));
+    	  //dlog_print(DLOG_INFO, LOG_TAG, "Distance[%s] = %0.3f", uuids[0], distance);
+      }
+
+      // Apply Threshold
+      if(distance < threshold){
+    	  uuid = uuids[0];
+    	  num = atoi(uuid);
+    	  stack[ind] = num;
+    	  ind++;
+    	  /*for(int k = 0; k < ind; k++){
+    		  dlog_print(DLOG_INFO, LOG_TAG, "stack[%d] = %d", k, stack[k]);
+    	  }*/
+    	  // Renew key
+    	  if(distance < key_D){
+    		  _key = atoi(uuid);
+    		  key_D = distance;
+    		  //dlog_print(DLOG_INFO, LOG_TAG, "key = %d", _key);
+    	  }
+    	  g_free(uuids[0]);
+      }
+}
+
+int get_Area(int _stack[100], int _key, int _ind)
+{
+	for(int t = 0; t < _ind; t++)
+	{
+		dlog_print(DLOG_INFO, LOG_TAG, "_stack[%d] = %d", t, _stack[t]);
+	}
+	dlog_print(DLOG_INFO, LOG_TAG, "_key = %d", _key);
+	dlog_print(DLOG_INFO, LOG_TAG, "_ind = %d", _ind);
+
+	int Area = 0;	// Return value (Area)
+
+	// If there is not enough data.
+	if(_ind < 2){
+		Area = 0;
 	}
 
-	if (info->adv_data_len > 31 || info->scan_data_len > 31) {
-		dlog_print(DLOG_INFO, LOG_TAG, "###################");
-		bt_adapter_le_stop_scan();
-		dlog_print(DLOG_INFO, LOG_TAG, "###################");
+	// Set area
+	const int section = 3;
+	int area[section][4] = {
+			{4, 6, 4, 6},
+			{7, 8, 7, 8},
+			{2, 3, 2, 3}
+	};
 
-		return;
-	}
-
-	for (i = 0; i < 2; i++) {
-		char **uuids;
-		char *device_name;
-		int tx_power_level;
-		bt_adapter_le_service_data_s *data_list;
-		int appearance;
-		int manufacturer_id;
-		char *manufacturer_data;
-		int manufacturer_data_len;
-		int count;
-
-		pkt_type += i;
-		if (pkt_type
-				== BT_ADAPTER_LE_PACKET_ADVERTISING&& info->adv_data == NULL)
-			continue;
-		if (pkt_type
-				== BT_ADAPTER_LE_PACKET_SCAN_RESPONSE&& info->scan_data == NULL)
-			break;
-
-		if (bt_adapter_le_get_scan_result_service_uuids(info, pkt_type, &uuids, &count) == BT_ERROR_NONE) {
-			int i;
-			for (i = 0; i < count; i++) {
-				dlog_print(DLOG_INFO, LOG_TAG, "UUID[%d] = %s", i + 1, uuids[i]);
-				dlog_print(DLOG_INFO, LOG_TAG, "RSSI[%d] = %d", i + 1, info->rssi);
-				double RSSI = info->rssi;
-				if (bt_adapter_le_get_scan_result_tx_power_level(info, pkt_type, &tx_power_level) == BT_ERROR_NONE) {
-					double n = 2.0;
-					double D;
-					D = pow(10, (tx_power_level-RSSI) / (10*n));
-					//dlog_print(DLOG_INFO, LOG_TAG, "Distance[%d] = %d", i + 1, D);
-					//dlog_print(DLOG_INFO, LOG_TAG, "TX Power level = %d",tx_power_level);
-					}
-				g_free(uuids[i]);
+	// Area sorting with key
+	int area_ind[4];
+	int a_ind = 0;
+	for(int i1 = 0; i1 < section;i1++){
+		for(int i2 = 0; i2 < 4; i2++){
+			if(_key == area[i1][i2]){
+				area_ind[a_ind] = i1;
+				a_ind++;
+				break;
 			}
-			g_free(uuids);
 		}
-		if (bt_adapter_le_get_scan_result_device_name(info, pkt_type,
-				&device_name) == BT_ERROR_NONE) {
-			//dlog_print(DLOG_INFO, LOG_TAG, "Device name = %s", device_name);
-			//dlog_print(DLOG_INFO, LOG_TAG, "Addresse = %s", info->remote_address);
-			char *addr = NULL;
-			//dlog_print(DLOG_INFO, LOG_TAG, "Comparing");
-			if (strcmp(info->remote_address, "C9:D4:67:84:5C:E7") == 0) {
-				dlog_print(DLOG_INFO, LOG_TAG, "Got our device");
-				bt_adapter_le_stop_scan();
-				ret = bt_gatt_connect("xx:xx:xx:xx:xx:xx", false);
-				if (ret != BT_ERROR_NONE) {
-					dlog_print(DLOG_INFO, LOG_TAG, "Failed to connect LE device.");
-				} else {
-					dlog_print(DLOG_INFO, LOG_TAG, "Connected to our LE device.");
-					//ret = bt_gatt_client_create("xx:xx:xx:xx:xx:xx", &client);
-					if (ret == BT_ERROR_NONE) {
-						dlog_print(DLOG_INFO, LOG_TAG, "Client created");
-						//ret = bt_gatt_client_get_remote_address(client, &addr);
-						if (ret == BT_ERROR_NONE)
-							dlog_print(DLOG_INFO, LOG_TAG, "Success");
+	}
 
-						//ret = bt_gatt_client_foreach_services(client, __bt_gatt_client_foreach_svc_cb, NULL);
-						if (ret != BT_ERROR_NONE) {
-							dlog_print(DLOG_INFO, LOG_TAG, "fail to read services");
-						}
-						char *svc_uuid = "0000180f-0000-1000-8000-00805f9b34fb"; // Battery service
-						char *chr_uuid = "00002a19-0000-1000-8000-00805f9b34fb"; // Battery level
-						char *desc_uuid = "058e3555-f52f-8f88-870d-67ce119e315c"; // Client characteristic configuration
-						bt_gatt_h svc = NULL;
-						bt_gatt_h chr = NULL;
-						bt_gatt_h desc = NULL;
-
-						//ret = bt_gatt_client_get_service(client, svc_uuid,&svc);
-						if (ret != BT_ERROR_NONE) {
-							dlog_print(DLOG_INFO, LOG_TAG,"bt_gatt_client_get_service is failed : %d",ret);
-
-						} else {
-							dlog_print(DLOG_INFO, LOG_TAG, "bt_gatt_client_get_service is success ");
-						}
-
-						ret = bt_gatt_service_get_characteristic(svc, chr_uuid,
-								&chr);
-						if (ret != BT_ERROR_NONE) {
-							dlog_print(DLOG_INFO, LOG_TAG, "bt_gatt_service_get_characteristic is failed : %d",ret);
-						} else {
-							dlog_print(DLOG_INFO, LOG_TAG, "bt_gatt_client_get_char is success :");
-						}
-						*svc_uuid = "058e0555-f52f-8f88-870d-67ce119e315c";
-						ret = bt_gatt_service_get_characteristic(svc, chr_uuid,
-								&chr);
-						if (ret != BT_ERROR_NONE) {
-							dlog_print(DLOG_INFO, LOG_TAG, "bt_gatt_service_get_characteristic is failed : %d", ret);
-
-						} else {
-							dlog_print(DLOG_INFO, LOG_TAG, "bt_gatt_client_getc is success");
-						}
-						ret = bt_gatt_characteristic_get_descriptor(chr,
-								desc_uuid, &desc);
-						if (ret != BT_ERROR_NONE) {
-							dlog_print(DLOG_INFO, LOG_TAG, "bt_gatt_characteristic_get_descriptor is failed : %d", ret);
-
-						} else {
-							dlog_print(DLOG_INFO, LOG_TAG, "bt_gatt_characteristic_get_descriptor success");
-						}
-
-					}
+	// Area similarity calculation
+	int MAX_check_elm = 0;
+	for(int k1 = 0; k1 < a_ind; k1++){
+		int check_elm = 0;
+		for(int k2 = 0; k2 < 4; k2++){
+			for(int k3 = 0; k3 < _ind; k3++){
+				if(area[area_ind[k1]][k2] == _stack[k3]){
+					check_elm++;
+					break;
 				}
 			}
-			g_free(device_name);
 		}
-		if (bt_adapter_le_get_scan_result_tx_power_level(info, pkt_type,
-				&tx_power_level) == BT_ERROR_NONE) {
-			//dlog_print(DLOG_INFO, LOG_TAG, "TX Power level = %d",tx_power_level);
-		}
-		if (bt_adapter_le_get_scan_result_service_solicitation_uuids(info,
-				pkt_type, &uuids, &count) == BT_ERROR_NONE) {
-			int i;
-			for (i = 0; i < count; i++) {
-				dlog_print(DLOG_INFO, LOG_TAG, "Solicitation UUID[%d] = %s", i + 1, uuids[i]);
-				g_free(uuids[i]);
+		if(check_elm == 4){
+			if(MAX_check_elm == 4){
+				break;
+			}else{
+				Area = area_ind[k1] + 1;
+				MAX_check_elm = 4;
 			}
-			g_free(uuids);
-		}
-		if (bt_adapter_le_get_scan_result_service_data_list(info, pkt_type,
-				&data_list, &count) == BT_ERROR_NONE) {
-			int i;
-			for (i = 0; i < count; i++){
-				//dlog_print(DLOG_INFO, LOG_TAG,
-				//"Service Data[%d] = [0x%2.2X%2.2X:0x%.2X...]", i + 1,
-				//data_list[i].service_uuid[0],
-				//data_list[i].service_uuid[1],
-				//data_list[i].service_data[0]);
+		}else if(check_elm == 3){
+			if(MAX_check_elm == 0){
+				Area = area_ind[k1] + 1;
+				MAX_check_elm = 3;
+			}else{
+				continue;
 			}
-			bt_adapter_le_free_service_data_list(data_list, count);
+		}else{
+			continue;
 		}
-		if (bt_adapter_le_get_scan_result_appearance(info, pkt_type,
-				&appearance) == BT_ERROR_NONE) {
-			//dlog_print(DLOG_INFO, LOG_TAG, "Appearance = %d", appearance);
-		}
-		if (bt_adapter_le_get_scan_result_manufacturer_data(info, pkt_type,
-				&manufacturer_id, &manufacturer_data, &manufacturer_data_len)
-				== BT_ERROR_NONE) {
-			//dlog_print(DLOG_INFO, LOG_TAG,
-			//"Manufacturer data[ID:%.4X, 0x%.2X%.2X...(len:%d)]",
-			//manufacturer_id, manufacturer_data[0], manufacturer_data[1],
-			//manufacturer_data_len);
-			g_free(manufacturer_data);
-		}
-
 	}
+
+	return Area;
+}
+
+Eina_Bool my_timed_cb(void *data)
+{
+	static int count = 0;
+	count++;
+    //dlog_print(DLOG_INFO, LOG_TAG, "ind = %d / _key = %d / key_D = %f / stack[0] = %d / num = %d / distance = %f", ind, _key, key_D, stack[0], num, distance);
+    dlog_print(DLOG_INFO, LOG_TAG, "[%d] Timer_Start", count);
+
+    int _stack[100] = {0, };	// Save deduplicated stack
+    int _ind = 0;				// Index of _stack
+
+    // Deduplicated stack
+    for(int k = 0; k < ind; k++)
+    {
+    	int check = 0;
+    	for(int i = 0; i < ind; i++)
+    	{
+    		if(stack[k] == _stack[i]){
+    			check = 1;
+    			break;
+    		}
+    	}
+    	if(check == 0){
+    		_stack[_ind] = stack[k];
+    		_ind++;
+    	}
+    	//dlog_print(DLOG_INFO, LOG_TAG, "check = %d", check);
+    }
+    /*for(int t = 0; t < _ind; t++)
+    {
+    	dlog_print(DLOG_INFO, LOG_TAG, "_stack[%d] = %d", t, _stack[t]);
+    }
+    dlog_print(DLOG_INFO, LOG_TAG, "key = %d", _key);*/
+
+    // Get area
+    int _AREA;
+    _AREA = get_Area(_stack, _key, _ind);
+    if(_AREA != 0){
+    	AREA = _AREA;
+    }
+
+    dlog_print(DLOG_INFO, LOG_TAG, "Current _Area = %d", _AREA);
+
+    // interlock thingspark
+    int ret_cloud = 0;
+    tp_handle_h handle = NULL;
+	ret_cloud = tp_initialize("mN2fIhVZXtIAfRYj", &handle);
+	retv_if(ret_cloud != 0, -1);
+
+	char s1[10];
+	sprintf(s1, "%d", AREA);
+
+	// Set field
+	ret_cloud = tp_set_field_value(handle, 1, s1);
+	retv_if(ret_cloud != 0, -1);
+
+	// Transferring area data to a server
+	ret_cloud = tp_send_data(handle);
+	retv_if(ret_cloud != 0, -1);
+
+	// Thingspark handle edd
+	ret_cloud = tp_finalize(handle);
+	retv_if(ret_cloud != 0, -1);
+
+	// Initialize
+    ind = 0;
+    _key = 0;
+    key_D = 2.0;
+    int stack[100] = {0, };
+    num = 0;
+    distance = 0;
+
+    //dlog_print(DLOG_INFO, LOG_TAG, "ind = %d / _key = %d / key_D = %f / stack[0] = %d / num = %d / distance = %f", ind, _key, key_D, stack[0], num, distance);
+    //dlog_print(DLOG_INFO, LOG_TAG, "_ind = %d", _ind);
+
+	return ECORE_CALLBACK_RENEW;
+}
+
+
+bool service_app_create(void *data)
+{
+
+	dlog_print(DLOG_INFO, LOG_TAG, "App Create");
+
+	create_bi_directional_message_port("sample_service_port");
+
+	// Initialize BLE
+	bt_error_e ret;
+	ret = bt_initialize();
+	dlog_print(DLOG_INFO, LOG_TAG, "Initialize BLE");
+
+	// Regist BLE Filter
+	char device_name[10] = "HMSoft"; //BLE device name
+	bt_scan_filter_h scan_filter;
+
+	ret = bt_adapter_le_scan_filter_create(&scan_filter);
+	if (ret != BT_ERROR_NONE)
+	   dlog_print(DLOG_ERROR, LOG_TAG, "Could not create scan filter");
+	else
+	   dlog_print(DLOG_ERROR, LOG_TAG, "Success1");
+
+	ret = bt_adapter_le_scan_filter_set_device_name(scan_filter, device_name);
+	if (ret != BT_ERROR_NONE)
+	    dlog_print(DLOG_ERROR, LOG_TAG, "Could not set device address");
+	else
+	   dlog_print(DLOG_ERROR, LOG_TAG, "Success2");
+
+	ret = bt_adapter_le_scan_filter_register(scan_filter);
+	if (ret != BT_ERROR_NONE)
+	   dlog_print(DLOG_ERROR, LOG_TAG, "Could not regist filter");
+	else
+	   dlog_print(DLOG_ERROR, LOG_TAG, "Success2");
+	dlog_print(DLOG_INFO, LOG_TAG, "Regist BLE Filter");
+
+    return true;
+}
+
+void service_app_terminate(void *data)
+{
+	// App terminate
+	dlog_print(DLOG_INFO, LOG_TAG, "The end");
+	if(timer){
+		ecore_timer_del(timer);
+	}
+	return;
+}
+
+void service_app_control(app_control_h app_control, void *data)
+{
+	dlog_print(DLOG_INFO, LOG_TAG, "Access App Control");
+
+	// Start BLE Scan
+	bt_error_e ret;
+	ret = bt_adapter_le_start_scan(__bt_adapter_le_scan_result_cb, NULL);
+	dlog_print(DLOG_INFO, LOG_TAG, "Start BLE Scan");
+	//Error_check(ret);
+
+	// Set timer
+	ecore_timer_add(10.0, my_timed_cb, NULL);
+	dlog_print(DLOG_INFO, LOG_TAG, "Set timer");
+
+    return;
+}
+
+static void
+service_app_lang_changed(app_event_info_h event_info, void *user_data)
+{
+	/*APP_EVENT_LANGUAGE_CHANGED*/
+	return;
+}
+
+static void
+service_app_region_changed(app_event_info_h event_info, void *user_data)
+{
+	/*APP_EVENT_REGION_FORMAT_CHANGED*/
+}
+
+static void
+service_app_low_battery(app_event_info_h event_info, void *user_data)
+{
+	/*APP_EVENT_LOW_BATTERY*/
+}
+
+static void
+service_app_low_memory(app_event_info_h event_info, void *user_data)
+{
+	/*APP_EVENT_LOW_MEMORY*/
+}
+
+int main(int argc, char* argv[])
+{
+
+    char ad[50] = {0,};
+	service_app_lifecycle_callback_s event_callback;
+	app_event_handler_h handlers[5] = {NULL, };
+
+	event_callback.create = service_app_create;
+	event_callback.terminate = service_app_terminate;
+	event_callback.app_control = service_app_control;
+
+	service_app_add_event_handler(&handlers[APP_EVENT_LOW_BATTERY], APP_EVENT_LOW_BATTERY, service_app_low_battery, &ad);
+	service_app_add_event_handler(&handlers[APP_EVENT_LOW_MEMORY], APP_EVENT_LOW_MEMORY, service_app_low_memory, &ad);
+	service_app_add_event_handler(&handlers[APP_EVENT_LANGUAGE_CHANGED], APP_EVENT_LANGUAGE_CHANGED, service_app_lang_changed, &ad);
+	service_app_add_event_handler(&handlers[APP_EVENT_REGION_FORMAT_CHANGED], APP_EVENT_REGION_FORMAT_CHANGED, service_app_region_changed, &ad);
+
+	dlog_print(DLOG_INFO, LOG_TAG, "App Start");
+	return service_app_main(argc, argv, &event_callback, ad);
 }
