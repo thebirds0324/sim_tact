@@ -34,6 +34,7 @@ namespace CartProject.Models
                 string filePath = "local:EmbeddedImage ResourceId=CartProject.Data.Images_Ads.ads_1_test.png";
                 byte[] bmp = null;
 
+                String test = "test";
 
                 
 
