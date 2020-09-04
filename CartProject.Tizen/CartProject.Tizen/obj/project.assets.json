@@ -1408,11 +1408,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Younggeon Park\\Source\\Repos\\thebirds0324\\sim_tact\\CartProject.Tizen\\CartProject.Tizen\\CartProject.Tizen.csproj",
+      "projectUniqueName": "C:\\Users\\Younggeon Park\\source\\repos\\thebirds0324\\sim_tact\\CartProject.Tizen\\CartProject.Tizen\\CartProject.Tizen.csproj",
       "projectName": "CartProject.Tizen",
-      "projectPath": "C:\\Users\\Younggeon Park\\Source\\Repos\\thebirds0324\\sim_tact\\CartProject.Tizen\\CartProject.Tizen\\CartProject.Tizen.csproj",
+      "projectPath": "C:\\Users\\Younggeon Park\\source\\repos\\thebirds0324\\sim_tact\\CartProject.Tizen\\CartProject.Tizen\\CartProject.Tizen.csproj",
       "packagesPath": "C:\\Users\\Younggeon Park\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Younggeon Park\\Source\\Repos\\thebirds0324\\sim_tact\\CartProject.Tizen\\CartProject.Tizen\\obj\\",
+      "outputPath": "C:\\Users\\Younggeon Park\\source\\repos\\thebirds0324\\sim_tact\\CartProject.Tizen\\CartProject.Tizen\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -1432,8 +1432,8 @@
       "frameworks": {
         "tizen60": {
           "projectReferences": {
-            "C:\\Users\\Younggeon Park\\Source\\Repos\\thebirds0324\\sim_tact\\CartProject\\CartProject.csproj": {
-              "projectPath": "C:\\Users\\Younggeon Park\\Source\\Repos\\thebirds0324\\sim_tact\\CartProject\\CartProject.csproj"
+            "C:\\Users\\Younggeon Park\\source\\repos\\thebirds0324\\sim_tact\\CartProject\\CartProject.csproj": {
+              "projectPath": "C:\\Users\\Younggeon Park\\source\\repos\\thebirds0324\\sim_tact\\CartProject\\CartProject.csproj"
             }
           }
         }

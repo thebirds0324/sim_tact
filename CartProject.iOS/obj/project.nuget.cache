@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "d81Bsm4BPhfcX2SoGYmn/TAUsRWA3Npl7u2OT8SJNzgRx9iiJ9Qb3PPHzZjGluSideSQsQN/dxe1DRE+QF1OWQ==",
+  "dgSpecHash": "DF4Ega2WYaeQr+Gb1XBDs2cOh7zK6sM1/0Xhupc0UlUTIujB3+pQnEAbBoM09N0ZcpSvAUmMFiE9BObkMWieKA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Younggeon Park\\Source\\Repos\\thebirds0324\\sim_tact\\CartProject.iOS\\CartProject.iOS.csproj",
+  "projectFilePath": "C:\\Users\\Younggeon Park\\source\\repos\\thebirds0324\\sim_tact\\CartProject.iOS\\CartProject.iOS.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Younggeon Park\\.nuget\\packages\\sqlite-net-pcl\\1.7.335\\sqlite-net-pcl.1.7.335.nupkg.sha512",
     "C:\\Users\\Younggeon Park\\.nuget\\packages\\sqlitepclraw.bundle_green\\2.0.3\\sqlitepclraw.bundle_green.2.0.3.nupkg.sha512",

@@ -13,10 +13,10 @@
             <Button Grid.Row="2" Text="생성" Clicked="OnAdsAddedClicked" />
         </Grid>
 
-        <ListView x:Name="listView" Margin="0,10,10,10" BackgroundColor="White">
+        <ListView x:Name="listView" Margin="0,10,10,10" BackgroundColor="WhiteSmoke"  >
             <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ImageCell ImageSource="{Binding Image}" Text="{Binding Text}" />
+                <DataTemplate >
+                    <ImageCell Height="100" ImageSource="{Binding Text}" Text="{Binding Text}"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

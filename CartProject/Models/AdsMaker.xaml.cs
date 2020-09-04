@@ -40,27 +40,15 @@ namespace CartProject.Models
 
         async void OnSaveButtonClicked(object sender, EventArgs e)
         {
-            for(int i=0; i<3; i++)
-            {
-                Random random = new Random();
-                var ads = new Ads();
-                string filePath = @"C:\Users\Younggeon Park\source\repos\thebirds0324\sim_tact\CartProject\Data\Images_Ads\Image0.png";
-                byte[] result=ConvertImageToByteArray(filePath);
+            var test1 = new Ads();
+            var test2 = new Ads();
+            test1.Text = "https://i.imgur.com/aJOvLO6.png";
+            test2.Text = "https://i.imgur.com/juoDrb7.png";
 
-                // Initialize 하기
-                ads.Section = random.Next(0, 2);
-                ads.Text = "Test Text #" + i;
+            await App.Database_Ads.SaveAdsAsync(test1);
+            await App.Database_Ads.SaveAdsAsync(test2);
 
-                //string filePath = "local:EmbeddedImage ResourceId=CartProject.Data.Images_Ads.ads_1_test.png";
-                
-
-                ads.Image = result;
-                
-                await App.Database_Ads.SaveAdsAsync(ads);
-            }
             await Navigation.PopAsync();
         }
-
-
     }
 }

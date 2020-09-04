@@ -23,14 +23,17 @@ namespace CartProject
             base.OnAppearing();
 
             var cell = new DataTemplate(typeof(ImageCell));
-            var bnd = new Binding("Image", BindingMode.Default, new ByteArrayToImageConverter());
-            cell.SetBinding(ImageCell.ImageSourceProperty,bnd);
-            cell.SetBinding(TextCell.TextProperty, "Text");
+            #region cell선언 (주석처리중)
+            //var bnd = new Binding("Image", BindingMode.Default, new ByteArrayToImageConverter());
+            //cell.SetBinding(ImageCell.ImageSourceProperty,bnd);
+            //cell.SetBinding(TextCell.TextProperty, "Text");
+            #endregion
+            cell.SetBinding(ImageCell.ImageSourceProperty, "Text");
 
+
+            listView.RowHeight = 150;
             listView.ItemTemplate = cell;
             listView.ItemsSource = await App.Database_Ads.GetAdsSAsync();
-
-
         }
         async void OnListViewItemSelected(object sender, SelectedItemChangedEventArgs e)
         {

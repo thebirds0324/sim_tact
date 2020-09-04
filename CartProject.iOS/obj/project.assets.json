@@ -1444,11 +1444,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Younggeon Park\\Source\\Repos\\thebirds0324\\sim_tact\\CartProject.iOS\\CartProject.iOS.csproj",
+      "projectUniqueName": "C:\\Users\\Younggeon Park\\source\\repos\\thebirds0324\\sim_tact\\CartProject.iOS\\CartProject.iOS.csproj",
       "projectName": "CartProject.iOS",
-      "projectPath": "C:\\Users\\Younggeon Park\\Source\\Repos\\thebirds0324\\sim_tact\\CartProject.iOS\\CartProject.iOS.csproj",
+      "projectPath": "C:\\Users\\Younggeon Park\\source\\repos\\thebirds0324\\sim_tact\\CartProject.iOS\\CartProject.iOS.csproj",
       "packagesPath": "C:\\Users\\Younggeon Park\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Younggeon Park\\Source\\Repos\\thebirds0324\\sim_tact\\CartProject.iOS\\obj\\",
+      "outputPath": "C:\\Users\\Younggeon Park\\source\\repos\\thebirds0324\\sim_tact\\CartProject.iOS\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -1469,8 +1469,8 @@
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "C:\\Users\\Younggeon Park\\Source\\Repos\\thebirds0324\\sim_tact\\CartProject\\CartProject.csproj": {
-              "projectPath": "C:\\Users\\Younggeon Park\\Source\\Repos\\thebirds0324\\sim_tact\\CartProject\\CartProject.csproj"
+            "C:\\Users\\Younggeon Park\\source\\repos\\thebirds0324\\sim_tact\\CartProject\\CartProject.csproj": {
+              "projectPath": "C:\\Users\\Younggeon Park\\source\\repos\\thebirds0324\\sim_tact\\CartProject\\CartProject.csproj"
             }
           }
         }

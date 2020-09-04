@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Younggeon Park\\Source\\Repos\\thebirds0324\\sim_tact\\CartProject\\CartProject.csproj": {}
+    "C:\\Users\\Younggeon Park\\source\\repos\\thebirds0324\\sim_tact\\CartProject\\CartProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Younggeon Park\\Source\\Repos\\thebirds0324\\sim_tact\\CartProject\\CartProject.csproj": {
+    "C:\\Users\\Younggeon Park\\source\\repos\\thebirds0324\\sim_tact\\CartProject\\CartProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Younggeon Park\\Source\\Repos\\thebirds0324\\sim_tact\\CartProject\\CartProject.csproj",
+        "projectUniqueName": "C:\\Users\\Younggeon Park\\source\\repos\\thebirds0324\\sim_tact\\CartProject\\CartProject.csproj",
         "projectName": "CartProject",
-        "projectPath": "C:\\Users\\Younggeon Park\\Source\\Repos\\thebirds0324\\sim_tact\\CartProject\\CartProject.csproj",
+        "projectPath": "C:\\Users\\Younggeon Park\\source\\repos\\thebirds0324\\sim_tact\\CartProject\\CartProject.csproj",
         "packagesPath": "C:\\Users\\Younggeon Park\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Younggeon Park\\Source\\Repos\\thebirds0324\\sim_tact\\CartProject\\obj\\",
+        "outputPath": "C:\\Users\\Younggeon Park\\source\\repos\\thebirds0324\\sim_tact\\CartProject\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"

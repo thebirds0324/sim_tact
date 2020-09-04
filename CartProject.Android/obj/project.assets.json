@@ -2171,11 +2171,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Younggeon Park\\Source\\Repos\\thebirds0324\\sim_tact\\CartProject.Android\\CartProject.Android.csproj",
+      "projectUniqueName": "C:\\Users\\Younggeon Park\\source\\repos\\thebirds0324\\sim_tact\\CartProject.Android\\CartProject.Android.csproj",
       "projectName": "CartProject.Android",
-      "projectPath": "C:\\Users\\Younggeon Park\\Source\\Repos\\thebirds0324\\sim_tact\\CartProject.Android\\CartProject.Android.csproj",
+      "projectPath": "C:\\Users\\Younggeon Park\\source\\repos\\thebirds0324\\sim_tact\\CartProject.Android\\CartProject.Android.csproj",
       "packagesPath": "C:\\Users\\Younggeon Park\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Younggeon Park\\Source\\Repos\\thebirds0324\\sim_tact\\CartProject.Android\\obj\\",
+      "outputPath": "C:\\Users\\Younggeon Park\\source\\repos\\thebirds0324\\sim_tact\\CartProject.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -2196,8 +2196,8 @@
       "frameworks": {
         "monoandroid90": {
           "projectReferences": {
-            "C:\\Users\\Younggeon Park\\Source\\Repos\\thebirds0324\\sim_tact\\CartProject\\CartProject.csproj": {
-              "projectPath": "C:\\Users\\Younggeon Park\\Source\\Repos\\thebirds0324\\sim_tact\\CartProject\\CartProject.csproj"
+            "C:\\Users\\Younggeon Park\\source\\repos\\thebirds0324\\sim_tact\\CartProject\\CartProject.csproj": {
+              "projectPath": "C:\\Users\\Younggeon Park\\source\\repos\\thebirds0324\\sim_tact\\CartProject\\CartProject.csproj"
             }
           }
         }
