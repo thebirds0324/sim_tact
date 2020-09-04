@@ -1,4 +1,5 @@
-﻿using CartProject.Models;
+﻿using CartProject.Data;
+using CartProject.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,7 +22,15 @@ namespace CartProject
         {
             base.OnAppearing();
 
+            var cell = new DataTemplate(typeof(ImageCell));
+            var bnd = new Binding("Image", BindingMode.Default, new ByteArrayToImageConverter());
+            cell.SetBinding(ImageCell.ImageSourceProperty,bnd);
+            cell.SetBinding(TextCell.TextProperty, "Text");
+
+            listView.ItemTemplate = cell;
             listView.ItemsSource = await App.Database_Ads.GetAdsSAsync();
+
+
         }
         async void OnListViewItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
@@ -41,7 +50,7 @@ namespace CartProject
         }
         async void OnCalcButtonClicked(object sender, EventArgs e)
         {
-            
+            await Navigation.PushAsync(new SearchPage { });
         }
         async void OnAdsAddedClicked(object sender, EventArgs e)
         {

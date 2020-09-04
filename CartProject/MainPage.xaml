@@ -16,8 +16,7 @@
         <ListView x:Name="listView" Margin="0,10,10,10" BackgroundColor="White">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <!--<ImageCell ImageSource="{Binding image}" Text="{Binding Text}" /> -->
-                    <TextCell Text="{Binding Text}" TextColor="Black" />
+                    <ImageCell ImageSource="{Binding Image}" Text="{Binding Text}" />
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

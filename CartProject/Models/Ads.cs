@@ -12,5 +12,6 @@ namespace CartProject.Models
         public int ID { get; set; }
         public string Text { get; set; }
         public int Section { get; set; }
+        public byte[] Image { get; set; } //Bitmap 형식으로 이미지 저장
     }
 }

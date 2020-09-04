@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\autotech\\source\\repos\\CartProject\\CartProject\\CartProject.csproj": {}
+    "C:\\Users\\Younggeon Park\\Source\\Repos\\thebirds0324\\sim_tact\\CartProject\\CartProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\autotech\\source\\repos\\CartProject\\CartProject\\CartProject.csproj": {
+    "C:\\Users\\Younggeon Park\\Source\\Repos\\thebirds0324\\sim_tact\\CartProject\\CartProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\autotech\\source\\repos\\CartProject\\CartProject\\CartProject.csproj",
+        "projectUniqueName": "C:\\Users\\Younggeon Park\\Source\\Repos\\thebirds0324\\sim_tact\\CartProject\\CartProject.csproj",
         "projectName": "CartProject",
-        "projectPath": "C:\\Users\\autotech\\source\\repos\\CartProject\\CartProject\\CartProject.csproj",
-        "packagesPath": "C:\\Users\\autotech\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\autotech\\source\\repos\\CartProject\\CartProject\\obj\\",
+        "projectPath": "C:\\Users\\Younggeon Park\\Source\\Repos\\thebirds0324\\sim_tact\\CartProject\\CartProject.csproj",
+        "packagesPath": "C:\\Users\\Younggeon Park\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Younggeon Park\\Source\\Repos\\thebirds0324\\sim_tact\\CartProject\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\autotech\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Younggeon Park\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
