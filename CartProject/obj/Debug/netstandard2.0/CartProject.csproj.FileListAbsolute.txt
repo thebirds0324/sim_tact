@@ -30,3 +30,6 @@ C:\Users\Younggeon Park\Source\Repos\thebirds0324\sim_tact\CartProject\obj\Debug
 C:\Users\Younggeon Park\Source\Repos\thebirds0324\sim_tact\CartProject\obj\Debug\netstandard2.0\CartProject.dll
 C:\Users\Younggeon Park\Source\Repos\thebirds0324\sim_tact\CartProject\obj\Debug\netstandard2.0\ref\CartProject.dll
 C:\Users\Younggeon Park\Source\Repos\thebirds0324\sim_tact\CartProject\obj\Debug\netstandard2.0\CartProject.pdb
+C:\Users\autotech\Source\Repos\thebirds0324\sim_tact\CartProject\obj\Debug\netstandard2.0\CartProject.dll
+C:\Users\autotech\Source\Repos\thebirds0324\sim_tact\CartProject\obj\Debug\netstandard2.0\ref\CartProject.dll
+C:\Users\autotech\Source\Repos\thebirds0324\sim_tact\CartProject\obj\Debug\netstandard2.0\CartProject.pdb

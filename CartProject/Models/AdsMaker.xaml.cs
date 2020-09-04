@@ -9,6 +9,9 @@ using Xamarin.Forms.Xaml;
 using CartProject.Models;
 using Xamarin.Forms.Internals;
 using System.Net.Http;
+using System.IO;
+using System.Runtime.CompilerServices;
+using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 
 namespace CartProject.Models
 {
@@ -19,6 +22,8 @@ namespace CartProject.Models
         {
             InitializeComponent();
         }
+
+        
 
         async void OnSaveButtonClicked(object sender, EventArgs e)
         {
@@ -34,10 +39,15 @@ namespace CartProject.Models
                 string filePath = "local:EmbeddedImage ResourceId=CartProject.Data.Images_Ads.ads_1_test.png";
                 byte[] bmp = null;
 
-                String test = "test";
+                Image image=Image.Fromfile(filepath);
+
+                var ms=new MemoryStream();
+                image.Save(ms,System.Drawing.Imaging.ImageFormat.Jpeg);
+
+                var bytes=ms.ToArray();
+                ads.Image = bytes;
 
                 
-
                 await App.Database_Ads.SaveAdsAsync(ads);
             }
             await Navigation.PopAsync();
