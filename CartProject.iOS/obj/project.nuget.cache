@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "s7skT6t6yjnOjsul+PwBp6TGX1xgAe3LvMtdKUfzg/FyLAvtelW8BhCBShJdeuO2iXT67DQeaaDFIKIe0/1ufQ==",
+  "dgSpecHash": "fqNcWXF1Z+ctbGrxJw3WYM/Smw7U0x5/ROU+AyOmGRfsRAZOuKHpI/ztHH/yriHvhujEMiqxB3V6jZVlFUI3pQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Younggeon Park\\Source\\Repos\\thebirds0324\\sim_tact\\CartProject.iOS\\CartProject.iOS.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Younggeon Park\\.nuget\\packages\\microsoft.netcore.platforms\\2.0.0\\microsoft.netcore.platforms.2.0.0.nupkg.sha512",
     "C:\\Users\\Younggeon Park\\.nuget\\packages\\sqlite-net-base\\1.7.335\\sqlite-net-base.1.7.335.nupkg.sha512",
     "C:\\Users\\Younggeon Park\\.nuget\\packages\\sqlite-net-pcl\\1.7.335\\sqlite-net-pcl.1.7.335.nupkg.sha512",
     "C:\\Users\\Younggeon Park\\.nuget\\packages\\sqlitepclraw.bundle_green\\2.0.4\\sqlitepclraw.bundle_green.2.0.4.nupkg.sha512",
@@ -12,22 +13,10 @@
     "C:\\Users\\Younggeon Park\\.nuget\\packages\\system.buffers\\4.4.0\\system.buffers.4.4.0.nupkg.sha512",
     "C:\\Users\\Younggeon Park\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
     "C:\\Users\\Younggeon Park\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.2\\system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512",
+    "C:\\Users\\Younggeon Park\\.nuget\\packages\\tizen.net\\6.0.0.14995\\tizen.net.6.0.0.14995.nupkg.sha512",
+    "C:\\Users\\Younggeon Park\\.nuget\\packages\\tizen.net.api6\\6.0.0.14995\\tizen.net.api6.6.0.0.14995.nupkg.sha512",
     "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.essentials\\1.5.3.2\\xamarin.essentials.1.5.3.2.nupkg.sha512",
-    "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.forms\\4.6.0.1141\\xamarin.forms.4.6.0.1141.nupkg.sha512"
+    "C:\\Users\\Younggeon Park\\.nuget\\packages\\xamarin.forms\\4.8.0.1364\\xamarin.forms.4.8.0.1364.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1605",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "4.8.0.1364에서 4.6.0.1141(으)로 다운그레이드된 패키지 Xamarin.Forms을(를) 발견했습니다. 프로젝트에서 패키지를 직접 참조하여 다른 버전을 선택하세요. \r\n CartProject.iOS -> CartProject -> Xamarin.Forms (>= 4.8.0.1364) \r\n CartProject.iOS -> Xamarin.Forms (>= 4.6.0.1141)",
-      "libraryId": "Xamarin.Forms",
-      "targetGraphs": [
-        "Xamarin.iOS,Version=v1.0",
-        "Xamarin.iOS,Version=v1.0/win",
-        "Xamarin.iOS,Version=v1.0/win-x64",
-        "Xamarin.iOS,Version=v1.0/win-x86"
-      ]
-    }
-  ]
+  "logs": []
 }

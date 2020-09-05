@@ -30,6 +30,6 @@ C:\Users\autotech\Source\Repos\thebirds0324\sim_tact\CartProject\obj\Debug\netst
 C:\Users\Younggeon Park\Source\Repos\thebirds0324\sim_tact\CartProject\obj\Debug\netstandard2.0\App.xaml.g.cs
 C:\Users\Younggeon Park\Source\Repos\thebirds0324\sim_tact\CartProject\obj\Debug\netstandard2.0\Models\AdsMaker.xaml.g.cs
 C:\Users\Younggeon Park\Source\Repos\thebirds0324\sim_tact\CartProject\obj\Debug\netstandard2.0\SearchPage.xaml.g.cs
+C:\Users\Younggeon Park\Source\Repos\thebirds0324\sim_tact\CartProject\obj\Debug\netstandard2.0\Views\ListPage.xaml.g.cs
 C:\Users\Younggeon Park\Source\Repos\thebirds0324\sim_tact\CartProject\obj\Debug\netstandard2.0\CartProject.csproj.CoreCompileInputs.cache
 C:\Users\Younggeon Park\Source\Repos\thebirds0324\sim_tact\CartProject\obj\Debug\netstandard2.0\XamlC.stamp
-C:\Users\Younggeon Park\Source\Repos\thebirds0324\sim_tact\CartProject\obj\Debug\netstandard2.0\Views\ListPage.xaml.g.cs

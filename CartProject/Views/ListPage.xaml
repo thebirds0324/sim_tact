@@ -20,7 +20,7 @@
                 <Button Grid.Row="1" Text="생성" Clicked="OnAdsAddedClicked" />
             </Grid>
 
-            <ListView ItemsSource="{Binding DataList}" RowHeight="400" >
+            <ListView ItemsSource="{Binding DataList, UpdateSourceEventName=PropertyChanged}" RowHeight="400" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
