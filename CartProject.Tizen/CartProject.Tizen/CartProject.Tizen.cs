@@ -1,10 +1,14 @@
 using System;
 using Xamarin.Forms;
+using Tizen.Applications.Messages;
+using Tizen;
+
 
 namespace CartProject.Tizen
 {
     class Program : global::Xamarin.Forms.Platform.Tizen.FormsApplication
     {
+
         protected override void OnCreate()
         {
             base.OnCreate();

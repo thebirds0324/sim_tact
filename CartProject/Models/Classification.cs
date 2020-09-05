@@ -14,7 +14,5 @@ namespace CartProject.Models
             this.sector = sector;
             this.array = array;
         }
-
-        
     }
 }
