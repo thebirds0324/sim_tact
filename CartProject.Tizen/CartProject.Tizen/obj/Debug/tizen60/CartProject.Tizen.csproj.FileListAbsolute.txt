@@ -1,0 +1,12 @@
+C:\Users\Younggeon Park\Source\Repos\thebirds0324\sim_tact\CartProject.Tizen\CartProject.Tizen\bin\Debug\tizen60\CartProject.Tizen.deps.json
+C:\Users\Younggeon Park\Source\Repos\thebirds0324\sim_tact\CartProject.Tizen\CartProject.Tizen\bin\Debug\tizen60\CartProject.Tizen.dll
+C:\Users\Younggeon Park\Source\Repos\thebirds0324\sim_tact\CartProject.Tizen\CartProject.Tizen\bin\Debug\tizen60\CartProject.Tizen.pdb
+C:\Users\Younggeon Park\Source\Repos\thebirds0324\sim_tact\CartProject.Tizen\CartProject.Tizen\bin\Debug\tizen60\CartProject.dll
+C:\Users\Younggeon Park\Source\Repos\thebirds0324\sim_tact\CartProject.Tizen\CartProject.Tizen\bin\Debug\tizen60\CartProject.pdb
+C:\Users\Younggeon Park\Source\Repos\thebirds0324\sim_tact\CartProject.Tizen\CartProject.Tizen\obj\Debug\tizen60\CartProject.Tizen.csprojAssemblyReference.cache
+C:\Users\Younggeon Park\Source\Repos\thebirds0324\sim_tact\CartProject.Tizen\CartProject.Tizen\obj\Debug\tizen60\CartProject.Tizen.AssemblyInfoInputs.cache
+C:\Users\Younggeon Park\Source\Repos\thebirds0324\sim_tact\CartProject.Tizen\CartProject.Tizen\obj\Debug\tizen60\CartProject.Tizen.AssemblyInfo.cs
+C:\Users\Younggeon Park\Source\Repos\thebirds0324\sim_tact\CartProject.Tizen\CartProject.Tizen\obj\Debug\tizen60\CartProject.Tizen.csproj.CopyComplete
+C:\Users\Younggeon Park\Source\Repos\thebirds0324\sim_tact\CartProject.Tizen\CartProject.Tizen\obj\Debug\tizen60\CartProject.Tizen.dll
+C:\Users\Younggeon Park\Source\Repos\thebirds0324\sim_tact\CartProject.Tizen\CartProject.Tizen\obj\Debug\tizen60\CartProject.Tizen.pdb
+C:\Users\Younggeon Park\Source\Repos\thebirds0324\sim_tact\CartProject.Tizen\CartProject.Tizen\obj\Debug\tizen60\CartProject.Tizen.csproj.CoreCompileInputs.cache

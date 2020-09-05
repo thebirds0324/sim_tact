@@ -25,11 +25,11 @@ C:\Users\Younggeon Park\Source\Repos\thebirds0324\sim_tact\CartProject\obj\Debug
 C:\Users\Younggeon Park\Source\Repos\thebirds0324\sim_tact\CartProject\obj\Debug\netstandard2.0\SearchPage.xaml.g.cs
 C:\Users\Younggeon Park\Source\Repos\thebirds0324\sim_tact\CartProject\obj\Debug\netstandard2.0\CartProject.AssemblyInfoInputs.cache
 C:\Users\Younggeon Park\Source\Repos\thebirds0324\sim_tact\CartProject\obj\Debug\netstandard2.0\CartProject.AssemblyInfo.cs
-C:\Users\Younggeon Park\Source\Repos\thebirds0324\sim_tact\CartProject\obj\Debug\netstandard2.0\CartProject.csproj.CoreCompileInputs.cache
-C:\Users\Younggeon Park\Source\Repos\thebirds0324\sim_tact\CartProject\obj\Debug\netstandard2.0\XamlC.stamp
 C:\Users\Younggeon Park\Source\Repos\thebirds0324\sim_tact\CartProject\obj\Debug\netstandard2.0\CartProject.dll
 C:\Users\Younggeon Park\Source\Repos\thebirds0324\sim_tact\CartProject\obj\Debug\netstandard2.0\ref\CartProject.dll
 C:\Users\Younggeon Park\Source\Repos\thebirds0324\sim_tact\CartProject\obj\Debug\netstandard2.0\CartProject.pdb
 C:\Users\autotech\Source\Repos\thebirds0324\sim_tact\CartProject\obj\Debug\netstandard2.0\CartProject.dll
 C:\Users\autotech\Source\Repos\thebirds0324\sim_tact\CartProject\obj\Debug\netstandard2.0\ref\CartProject.dll
 C:\Users\autotech\Source\Repos\thebirds0324\sim_tact\CartProject\obj\Debug\netstandard2.0\CartProject.pdb
+C:\Users\Younggeon Park\Source\Repos\thebirds0324\sim_tact\CartProject\obj\Debug\netstandard2.0\CartProject.csproj.CoreCompileInputs.cache
+C:\Users\Younggeon Park\Source\Repos\thebirds0324\sim_tact\CartProject\obj\Debug\netstandard2.0\XamlC.stamp

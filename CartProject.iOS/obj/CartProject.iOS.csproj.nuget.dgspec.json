@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Younggeon Park\\source\\repos\\thebirds0324\\sim_tact\\CartProject.iOS\\CartProject.iOS.csproj": {}
+    "C:\\Users\\Younggeon Park\\Source\\Repos\\thebirds0324\\sim_tact\\CartProject.iOS\\CartProject.iOS.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Younggeon Park\\source\\repos\\thebirds0324\\sim_tact\\CartProject.iOS\\CartProject.iOS.csproj": {
+    "C:\\Users\\Younggeon Park\\Source\\Repos\\thebirds0324\\sim_tact\\CartProject.iOS\\CartProject.iOS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Younggeon Park\\source\\repos\\thebirds0324\\sim_tact\\CartProject.iOS\\CartProject.iOS.csproj",
+        "projectUniqueName": "C:\\Users\\Younggeon Park\\Source\\Repos\\thebirds0324\\sim_tact\\CartProject.iOS\\CartProject.iOS.csproj",
         "projectName": "CartProject.iOS",
-        "projectPath": "C:\\Users\\Younggeon Park\\source\\repos\\thebirds0324\\sim_tact\\CartProject.iOS\\CartProject.iOS.csproj",
+        "projectPath": "C:\\Users\\Younggeon Park\\Source\\Repos\\thebirds0324\\sim_tact\\CartProject.iOS\\CartProject.iOS.csproj",
         "packagesPath": "C:\\Users\\Younggeon Park\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Younggeon Park\\source\\repos\\thebirds0324\\sim_tact\\CartProject.iOS\\obj\\",
+        "outputPath": "C:\\Users\\Younggeon Park\\Source\\Repos\\thebirds0324\\sim_tact\\CartProject.iOS\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
@@ -32,8 +32,8 @@
         "frameworks": {
           "xamarinios10": {
             "projectReferences": {
-              "C:\\Users\\Younggeon Park\\source\\repos\\thebirds0324\\sim_tact\\CartProject\\CartProject.csproj": {
-                "projectPath": "C:\\Users\\Younggeon Park\\source\\repos\\thebirds0324\\sim_tact\\CartProject\\CartProject.csproj"
+              "C:\\Users\\Younggeon Park\\Source\\Repos\\thebirds0324\\sim_tact\\CartProject\\CartProject.csproj": {
+                "projectPath": "C:\\Users\\Younggeon Park\\Source\\Repos\\thebirds0324\\sim_tact\\CartProject\\CartProject.csproj"
               }
             }
           }
@@ -69,14 +69,14 @@
         }
       }
     },
-    "C:\\Users\\Younggeon Park\\source\\repos\\thebirds0324\\sim_tact\\CartProject\\CartProject.csproj": {
+    "C:\\Users\\Younggeon Park\\Source\\Repos\\thebirds0324\\sim_tact\\CartProject\\CartProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Younggeon Park\\source\\repos\\thebirds0324\\sim_tact\\CartProject\\CartProject.csproj",
+        "projectUniqueName": "C:\\Users\\Younggeon Park\\Source\\Repos\\thebirds0324\\sim_tact\\CartProject\\CartProject.csproj",
         "projectName": "CartProject",
-        "projectPath": "C:\\Users\\Younggeon Park\\source\\repos\\thebirds0324\\sim_tact\\CartProject\\CartProject.csproj",
+        "projectPath": "C:\\Users\\Younggeon Park\\Source\\Repos\\thebirds0324\\sim_tact\\CartProject\\CartProject.csproj",
         "packagesPath": "C:\\Users\\Younggeon Park\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Younggeon Park\\source\\repos\\thebirds0324\\sim_tact\\CartProject\\obj\\",
+        "outputPath": "C:\\Users\\Younggeon Park\\Source\\Repos\\thebirds0324\\sim_tact\\CartProject\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -113,13 +113,21 @@
               "version": "[2.0.3, )",
               "autoReferenced": true
             },
+            "SQLitePCLRaw.bundle_green": {
+              "target": "Package",
+              "version": "[2.0.4, )"
+            },
             "Xamarin.Essentials": {
               "target": "Package",
               "version": "[1.5.3.2, )"
             },
             "Xamarin.Forms": {
               "target": "Package",
-              "version": "[4.6.0.1141, )"
+              "version": "[4.8.0.1364, )"
+            },
+            "sqlite-net-base": {
+              "target": "Package",
+              "version": "[1.7.335, )"
             },
             "sqlite-net-pcl": {
               "target": "Package",

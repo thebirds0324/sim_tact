@@ -1,4 +1,4 @@
-﻿using CartProject.Data;
+﻿using CartProject.Services;
 using CartProject.Models;
 using System;
 using System.Collections.Generic;
@@ -28,8 +28,14 @@ namespace CartProject
             //cell.SetBinding(ImageCell.ImageSourceProperty,bnd);
             //cell.SetBinding(TextCell.TextProperty, "Text");
             #endregion
+
             cell.SetBinding(ImageCell.ImageSourceProperty, "Text");
 
+            List<Ads> adsS = await App.Database_Ads.GetAdsSAsync();
+
+            #region Classification from Section Number
+
+            #endregion
 
             listView.RowHeight = 150;
             listView.ItemTemplate = cell;

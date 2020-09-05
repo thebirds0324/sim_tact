@@ -9,7 +9,7 @@ namespace CartProject.Tizen
         {
             base.OnCreate();
 
-            LoadApplication(new App());
+            LoadApplication(new CartProject.App());
         }
 
         static void Main(string[] args)

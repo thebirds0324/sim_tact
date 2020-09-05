@@ -1,8 +1,9 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+    <UserSecretsId>74ad14dd-96ab-4c7d-a43d-40f617fdbd8d</UserSecretsId>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -12,16 +13,13 @@
 
   <ItemGroup>
     <None Remove="Data\Images\ads_1_test.png" />
-    <None Remove="Data\Images_Ads\ads_1_test.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Data\Images_Ads\ads_1_test.png" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <PackageReference Include="sqlite-net-base" Version="1.7.335" />
     <PackageReference Include="sqlite-net-pcl" Version="1.7.335" />
-    <PackageReference Include="Xamarin.Forms" Version="4.6.0.1141" />
+    <PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.0.4" />
+    <PackageReference Include="Xamarin.Forms" Version="4.8.0.1364" />
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
   </ItemGroup>
 
