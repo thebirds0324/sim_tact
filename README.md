@@ -2,7 +2,10 @@
 <p align="center">
 <img width="300" alt="KakaoTalk_20200906_112959566" src="https://user-images.githubusercontent.com/52956065/92316838-729bcc00-f034-11ea-80f7-0cc03be555d2.png">
   </p>
-  
+
+## 시연 동영상
+https://youtu.be/euSKnWlC29Q
+
 나만의 쇼핑 광고판 Mynage
 ============= 
 언택트 시대에 필요한 기술로 저희는 Mynage(마이니지)를 제안합니다. 마이니지는 My와 Signage의 합성어로, 카트에 부착하여 사용하는 위치 기반의 판촉 시스템입니다.  
