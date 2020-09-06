@@ -1,7 +1,8 @@
 ### 2020 서울 하드웨어 해커톤 sim_tact 팀
 <p align="center">
-<img width="700" alt="yky" src="https://user-images.githubusercontent.com/49704910/92316397-5563ff00-f02e-11ea-968a-dc2138afe906.png">
+<img width="700" alt="KakaoTalk_20200906_112959566" src="https://user-images.githubusercontent.com/52956065/92316838-729bcc00-f034-11ea-80f7-0cc03be555d2.png">
   </p>
+
   
 나만의 쇼핑 광고판 Mynage
 ============= 
