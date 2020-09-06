@@ -37,9 +37,9 @@
 ## 파일 리스트
 |파일이름|위치|내용|기여자|
 |------|---|---|---|
-|real_ble.c|sim_tact/real_BLE/src/|비콘신호 감지 및 위치측정|최현경|
-|ListPage.xaml.cs|sim_tact/CartProject/Views/|Tizen UI|박영건|
-|AdsMaker.xaml.cs|sim_tact/CartProject/Models/|Database|박영건|
+|real_ble.c|(master)sim_tact/real_BLE/src/|비콘신호 감지 및 위치측정|최현경|
+|ListPage.xaml.cs|(Version1.3_UI_Final)sim_tact/CartProject/Views/|Tizen UI|박영건|
+|AdsMaker.xaml.cs|(Version1.3_UI_Final)sim_tact/CartProject/Models/|Database|박영건|
 
 
 ## 보드
