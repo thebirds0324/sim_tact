@@ -35,12 +35,11 @@
 
 
 ## 파일 리스트
-*tizen
-|파일이름|내용|기여자|
-|------|---|---|
-|real_ble.c|background에서 비콘 위치를 기반으로 현재 구역 특정|최현경|
-|ListPage.xaml.cs|Tizen UI|박영건|
-
+|파일이름|위치|내용|기여자|
+|------|---|---|---|
+|real_ble.c|sim_tact/real_BLE/src/|background에서 비콘 위치를 기반으로 현재 구역 특정|최현경|
+|ListPage.xaml.cs|sim_tact/CartProject/Views/|Tizen UI|박영건|
+|AdsMaker.xaml.cs|sim_tact/CartProject/Models/|Database|박영건|
 
 
 ## 보드
