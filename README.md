@@ -87,7 +87,7 @@
 
 
 ## 구현사항(가산점)
- Peripheral GPIO (LED, 블루투스 이용)
+sim_tact/real_BLE/src/real_ble.c 18번째 줄 peripheral_gpio_h gpio_h = NULL; 사용.
 
 
 
