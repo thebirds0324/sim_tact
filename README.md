@@ -97,7 +97,8 @@
 4) 무게 경량화
 
 ## 구현사항(가산점)
-sim_tact/real_BLE/src/real_ble.c 18번째 줄 peripheral_gpio_h gpio_h = NULL; 사용.
+GPIO : 비콘 스캔을 위해 초기화 할 때 LED 점등  
+(sim_tact/real_BLE/src/real_ble.c 18번째 줄~)
 
 
 
