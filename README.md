@@ -85,6 +85,11 @@
   </p>
 매장의 매대관리를 돕기 위해 사람들이 어느 구역을 얼마나 이용했는지에 대한 데이터를 서버로 전송하는 시스템.
 
+## 받침대 3D 모델링
+<p align="center">
+<img width="550" alt="KakaoTalk_20200906_003203923" src="https://user-images.githubusercontent.com/52956065/92316670-87776000-f032-11ea-8392-f75153624145.png">
+  </p>
+
 
 ## 구현사항(가산점)
 sim_tact/real_BLE/src/real_ble.c 18번째 줄 peripheral_gpio_h gpio_h = NULL; 사용.
