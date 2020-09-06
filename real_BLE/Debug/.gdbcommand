@@ -1,0 +1,6 @@
+set sysroot C:/tizen-studio/platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core
+set debug-file-directory C:/tizen-studio/platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/lib/debug
+set solib-search-path C:/Users/hkhk3/BLE_service/real_BLE/Debug
+dir C:/tizen-studio/platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/src/debug
+file "C:/Users/hkhk3/BLE_service/real_BLE/Debug/real_ble"
+sharedlibrary

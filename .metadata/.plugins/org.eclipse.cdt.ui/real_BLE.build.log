@@ -1,0 +1,6 @@
+10:22:01 **** Incremental Build of configuration Debug for project real_BLE ****
+ninja all 
+ninja: no work to do.
+
+10:22:05 Build Finished (took 3s.756ms)
+

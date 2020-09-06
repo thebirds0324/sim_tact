@@ -1,0 +1,5 @@
+15:46:05 **** Clean-only build of configuration Debug for project tizen_to_thingspark_example ****
+rm -rf src/tizen_2_thingspark_example.d src/thingspark.o src/thingspark.d thingspark src/tizen_2_thingspark_example.o 
+
+15:46:06 Build Finished (took 755ms)
+

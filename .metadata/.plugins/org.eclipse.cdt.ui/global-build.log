@@ -1,0 +1,1283 @@
+03:55:45 **** Incremental Build of configuration Debug for project real_BLE ****
+ninja all 
+[1/2] Building src/real_ble.o
+clang.exe: warning: -Wl,--hash-style=gnu: 'linker' input unused [-Wunused-command-line-argument]
+
+../src/real_ble.c:56:15: warning: unused variable 'ret' [-Wunused-variable]
+
+   bt_error_e ret;
+
+              ^
+
+../src/real_ble.c:190:20: warning: format specifies type 'int' but the argument has type 'void *' [-Wformat]
+
+        sprintf(s2, "%d", user_data);
+
+                     ~~   ^~~~~~~~~
+
+../src/real_ble.c:174:10: warning: unused variable 'found' [-Wunused-variable]
+
+    bool found;
+
+         ^
+
+../src/real_ble.c:172:11: warning: unused variable 'data' [-Wunused-variable]
+
+    char *data = NULL;
+
+          ^
+
+../src/real_ble.c:246:14: warning: incompatible integer to pointer conversion assigning to 'void *' from 'int' [-Wint-conversion]
+
+    _section = AREA;
+
+             ^ ~~~~
+
+../src/real_ble.c:248:61: warning: format specifies type 'int' but the argument has type 'void *' [-Wformat]
+
+    dlog_print(DLOG_INFO, LOG_TAG, "Current _section = %d", _section);
+
+                                                       ~~   ^~~~~~~~
+
+../src/real_ble.c:282:9: warning: unused variable 'stack' [-Wunused-variable]
+
+    int stack[100] = {0, };
+
+        ^
+
+7 warnings generated.
+
+[2/2] Linking real_ble
+03:58:16 **** Incremental Build of configuration Debug for project real_BLE ****
+ninja all 
+ninja: no work to do.
+04:00:13 **** Incremental Build of configuration Debug for project real_BLE ****
+ninja all 
+[1/2] Building src/real_ble.o
+FAILED: clang.exe -MMD -MT src/real_ble.o -MF src/real_ble.o.d  -DTIZEN_DEPRECATION -DDEPRECATION_WARNING -D_DEBUG -I"../inc" -O0 -g3 -Wall -c -fmessage-length=0 -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/libxml2" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/appcore-agent" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/appfw" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/asp/" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/attach-panel" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/badge" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/base" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/cairo" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/calendar-service2" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/cbhm" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/chromium-ewk" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/ckm" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/component_based/base/api" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/component_based/efl_base/api" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/contacts-svc" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/content" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/context-service" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/csr" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/dali" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/dali-toolkit" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/dbus-1.0" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/device" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/device-certificate-manager" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/dlog" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/ecore-1" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/ecore-buffer-1" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/ecore-con-1" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/ecore-evas-1" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/ecore-file-1" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/ecore-imf-1" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/ecore-imf-evas-1" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/ecore-input-1" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/ecore-input-evas-1" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/ecore-ipc-1" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/ector-1" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/edje-1" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/eet-1" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/efl-1" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/efl-extension" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/efreet-1" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/eina-1" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/eina-1/eina" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/eio-1" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/elementary-1" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/embryo-1" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/emile-1" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/eo-1" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/eom" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/ethumb-1" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/ethumb-client-1" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/evas-1" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/feedback" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/fontconfig" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/freetype2" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/geofence" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/gio-unix-2.0" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/glib-2.0" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/harfbuzz" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/iotcon" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/iotjs" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/json-glib-1.0" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/location" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/maps" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/media" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/media-content" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/messaging" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/metadata-editor" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/minicontrol" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/minizip" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/network" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/notification" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/notification-ex" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/notification-ex/api" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/nsd/" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/phonenumber-utils" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/privacy-privilege-manager/" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/rpc-port" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/SDL2" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/sensor" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/shortcut" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/storage" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/system" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/tef" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/tzsh" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/ui" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/ui-viewmgr" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/vulkan" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/web" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/widget_service" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/widget_viewer_dali" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/widget_viewer_evas" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/wifi-direct" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/yaca" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/lib/dbus-1.0/include" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/lib/glib-2.0/include" -target arm-tizen-linux-gnueabi -gcc-toolchain "C:\tizen-studio\tools\smart-build-interface/../arm-linux-gnueabi-gcc-6.2/" -ccc-gcc-name arm-linux-gnueabi-g++ -march=armv7-a -mfloat-abi=softfp -mfpu=vfpv3-d16 -mtune=cortex-a8 -Wno-gnu  -fPIE --sysroot="C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core" -mthumb --param=ssp-buffer-size=4 -mlittle-endian -mfloat-abi=softfp -Wl,--hash-style=gnu -Wp,-D__SOFTFP -Werror-implicit-function-declaration  -c ../src/real_ble.c -o src/real_ble.o
+clang.exe: warning: -Wl,--hash-style=gnu: 'linker' input unused [-Wunused-command-line-argument]
+
+../src/real_ble.c:56:15: warning: unused variable 'ret' [-Wunused-variable]
+
+   bt_error_e ret;
+
+              ^
+
+../src/real_ble.c:190:20: warning: format specifies type 'int' but the argument has type 'void *' [-Wformat]
+
+        sprintf(s2, "%d", user_data);
+
+                     ~~   ^~~~~~~~~
+
+../src/real_ble.c:174:10: warning: unused variable 'found' [-Wunused-variable]
+
+    bool found;
+
+         ^
+
+../src/real_ble.c:172:11: warning: unused variable 'data' [-Wunused-variable]
+
+    char *data = NULL;
+
+          ^
+
+../src/real_ble.c:246:14: warning: incompatible integer to pointer conversion assigning to 'void *' from 'int' [-Wint-conversion]
+
+    _section = AREA;
+
+             ^ ~~~~
+
+../src/real_ble.c:248:61: warning: format specifies type 'int' but the argument has type 'void *' [-Wformat]
+
+    dlog_print(DLOG_INFO, LOG_TAG, "Current _section = %d", _section);
+
+                                                       ~~   ^~~~~~~~
+
+../src/real_ble.c:282:9: warning: unused variable 'stack' [-Wunused-variable]
+
+    int stack[100] = {0, };
+
+        ^
+
+../src/real_ble.c:350:24: error: use of undeclared identifier 'gpio_h'
+
+        peripheral_gpio_write(gpio_h, 1);
+
+                              ^
+
+../src/real_ble.c:351:24: error: use of undeclared identifier 'gpio_h'
+
+        peripheral_gpio_write(gpio_h, 0);
+
+                              ^
+
+../src/real_ble.c:359:24: error: use of undeclared identifier 'gpio_h'
+
+        peripheral_gpio_write(gpio_h, 0);
+
+                              ^
+
+7 warnings and 3 errors generated.
+
+ninja: build stopped: subcommand failed.
+04:01:23 **** Incremental Build of configuration Debug for project real_BLE ****
+ninja all 
+[1/2] Building src/real_ble.o
+clang.exe: warning: -Wl,--hash-style=gnu: 'linker' input unused [-Wunused-command-line-argument]
+
+../src/real_ble.c:41:15: warning: unused variable 'ret' [-Wunused-variable]
+
+   bt_error_e ret;
+
+              ^
+
+../src/real_ble.c:175:20: warning: format specifies type 'int' but the argument has type 'void *' [-Wformat]
+
+        sprintf(s2, "%d", user_data);
+
+                     ~~   ^~~~~~~~~
+
+../src/real_ble.c:157:11: warning: unused variable 'data' [-Wunused-variable]
+
+    char *data = NULL;
+
+          ^
+
+../src/real_ble.c:159:10: warning: unused variable 'found' [-Wunused-variable]
+
+    bool found;
+
+         ^
+
+../src/real_ble.c:231:14: warning: incompatible integer to pointer conversion assigning to 'void *' from 'int' [-Wint-conversion]
+
+    _section = AREA;
+
+             ^ ~~~~
+
+../src/real_ble.c:233:61: warning: format specifies type 'int' but the argument has type 'void *' [-Wformat]
+
+    dlog_print(DLOG_INFO, LOG_TAG, "Current _section = %d", _section);
+
+                                                       ~~   ^~~~~~~~
+
+../src/real_ble.c:267:9: warning: unused variable 'stack' [-Wunused-variable]
+
+    int stack[100] = {0, };
+
+        ^
+
+7 warnings generated.
+
+[2/2] Linking real_ble
+04:03:15 **** Incremental Build of configuration Debug for project real_BLE ****
+ninja all 
+[1/2] Building src/real_ble.o
+clang.exe: warning: -Wl,--hash-style=gnu: 'linker' input unused [-Wunused-command-line-argument]
+
+../src/real_ble.c:41:15: warning: unused variable 'ret' [-Wunused-variable]
+
+   bt_error_e ret;
+
+              ^
+
+../src/real_ble.c:175:20: warning: format specifies type 'int' but the argument has type 'void *' [-Wformat]
+
+        sprintf(s2, "%d", user_data);
+
+                     ~~   ^~~~~~~~~
+
+../src/real_ble.c:159:10: warning: unused variable 'found' [-Wunused-variable]
+
+    bool found;
+
+         ^
+
+../src/real_ble.c:157:11: warning: unused variable 'data' [-Wunused-variable]
+
+    char *data = NULL;
+
+          ^
+
+../src/real_ble.c:231:14: warning: incompatible integer to pointer conversion assigning to 'void *' from 'int' [-Wint-conversion]
+
+    _section = AREA;
+
+             ^ ~~~~
+
+../src/real_ble.c:233:61: warning: format specifies type 'int' but the argument has type 'void *' [-Wformat]
+
+    dlog_print(DLOG_INFO, LOG_TAG, "Current _section = %d", _section);
+
+                                                       ~~   ^~~~~~~~
+
+../src/real_ble.c:267:9: warning: unused variable 'stack' [-Wunused-variable]
+
+    int stack[100] = {0, };
+
+        ^
+
+7 warnings generated.
+
+[2/2] Linking real_ble
+04:04:37 **** Incremental Build of configuration Debug for project real_BLE ****
+ninja all 
+[1/2] Building src/real_ble.o
+clang.exe: warning: -Wl,--hash-style=gnu: 'linker' input unused [-Wunused-command-line-argument]
+
+../src/real_ble.c:41:15: warning: unused variable 'ret' [-Wunused-variable]
+
+   bt_error_e ret;
+
+              ^
+
+../src/real_ble.c:175:20: warning: format specifies type 'int' but the argument has type 'void *' [-Wformat]
+
+        sprintf(s2, "%d", user_data);
+
+                     ~~   ^~~~~~~~~
+
+../src/real_ble.c:159:10: warning: unused variable 'found' [-Wunused-variable]
+
+    bool found;
+
+         ^
+
+../src/real_ble.c:157:11: warning: unused variable 'data' [-Wunused-variable]
+
+    char *data = NULL;
+
+          ^
+
+../src/real_ble.c:231:14: warning: incompatible integer to pointer conversion assigning to 'void *' from 'int' [-Wint-conversion]
+
+    _section = AREA;
+
+             ^ ~~~~
+
+../src/real_ble.c:233:61: warning: format specifies type 'int' but the argument has type 'void *' [-Wformat]
+
+    dlog_print(DLOG_INFO, LOG_TAG, "Current _section = %d", _section);
+
+                                                       ~~   ^~~~~~~~
+
+../src/real_ble.c:267:9: warning: unused variable 'stack' [-Wunused-variable]
+
+    int stack[100] = {0, };
+
+        ^
+
+7 warnings generated.
+
+[2/2] Linking real_ble
+04:06:04 **** Incremental Build of configuration Debug for project real_BLE ****
+ninja all 
+ninja: no work to do.
+04:06:36 **** Incremental Build of configuration Debug for project real_BLE ****
+ninja all 
+[1/2] Building src/real_ble.o
+clang.exe: warning: -Wl,--hash-style=gnu: 'linker' input unused [-Wunused-command-line-argument]
+
+../src/real_ble.c:41:15: warning: unused variable 'ret' [-Wunused-variable]
+
+   bt_error_e ret;
+
+              ^
+
+../src/real_ble.c:175:20: warning: format specifies type 'int' but the argument has type 'void *' [-Wformat]
+
+        sprintf(s2, "%d", user_data);
+
+                     ~~   ^~~~~~~~~
+
+../src/real_ble.c:159:10: warning: unused variable 'found' [-Wunused-variable]
+
+    bool found;
+
+         ^
+
+../src/real_ble.c:157:11: warning: unused variable 'data' [-Wunused-variable]
+
+    char *data = NULL;
+
+          ^
+
+../src/real_ble.c:231:14: warning: incompatible integer to pointer conversion assigning to 'void *' from 'int' [-Wint-conversion]
+
+    _section = AREA;
+
+             ^ ~~~~
+
+../src/real_ble.c:233:61: warning: format specifies type 'int' but the argument has type 'void *' [-Wformat]
+
+    dlog_print(DLOG_INFO, LOG_TAG, "Current _section = %d", _section);
+
+                                                       ~~   ^~~~~~~~
+
+../src/real_ble.c:267:9: warning: unused variable 'stack' [-Wunused-variable]
+
+    int stack[100] = {0, };
+
+        ^
+
+7 warnings generated.
+
+[2/2] Linking real_ble
+04:07:48 **** Incremental Build of configuration Debug for project real_BLE ****
+ninja all 
+[1/2] Building src/real_ble.o
+clang.exe: warning: -Wl,--hash-style=gnu: 'linker' input unused [-Wunused-command-line-argument]
+
+../src/real_ble.c:41:15: warning: unused variable 'ret' [-Wunused-variable]
+
+   bt_error_e ret;
+
+              ^
+
+../src/real_ble.c:175:20: warning: format specifies type 'int' but the argument has type 'void *' [-Wformat]
+
+        sprintf(s2, "%d", user_data);
+
+                     ~~   ^~~~~~~~~
+
+../src/real_ble.c:159:10: warning: unused variable 'found' [-Wunused-variable]
+
+    bool found;
+
+         ^
+
+../src/real_ble.c:157:11: warning: unused variable 'data' [-Wunused-variable]
+
+    char *data = NULL;
+
+          ^
+
+../src/real_ble.c:231:14: warning: incompatible integer to pointer conversion assigning to 'void *' from 'int' [-Wint-conversion]
+
+    _section = AREA;
+
+             ^ ~~~~
+
+../src/real_ble.c:233:61: warning: format specifies type 'int' but the argument has type 'void *' [-Wformat]
+
+    dlog_print(DLOG_INFO, LOG_TAG, "Current _section = %d", _section);
+
+                                                       ~~   ^~~~~~~~
+
+../src/real_ble.c:267:9: warning: unused variable 'stack' [-Wunused-variable]
+
+    int stack[100] = {0, };
+
+        ^
+
+7 warnings generated.
+
+[2/2] Linking real_ble
+04:09:49 **** Incremental Build of configuration Debug for project real_BLE ****
+ninja all 
+[1/2] Building src/real_ble.o
+FAILED: clang.exe -MMD -MT src/real_ble.o -MF src/real_ble.o.d  -DTIZEN_DEPRECATION -DDEPRECATION_WARNING -D_DEBUG -I"../inc" -O0 -g3 -Wall -c -fmessage-length=0 -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/libxml2" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/appcore-agent" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/appfw" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/asp/" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/attach-panel" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/badge" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/base" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/cairo" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/calendar-service2" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/cbhm" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/chromium-ewk" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/ckm" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/component_based/base/api" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/component_based/efl_base/api" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/contacts-svc" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/content" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/context-service" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/csr" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/dali" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/dali-toolkit" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/dbus-1.0" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/device" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/device-certificate-manager" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/dlog" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/ecore-1" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/ecore-buffer-1" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/ecore-con-1" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/ecore-evas-1" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/ecore-file-1" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/ecore-imf-1" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/ecore-imf-evas-1" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/ecore-input-1" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/ecore-input-evas-1" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/ecore-ipc-1" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/ector-1" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/edje-1" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/eet-1" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/efl-1" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/efl-extension" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/efreet-1" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/eina-1" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/eina-1/eina" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/eio-1" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/elementary-1" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/embryo-1" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/emile-1" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/eo-1" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/eom" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/ethumb-1" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/ethumb-client-1" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/evas-1" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/feedback" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/fontconfig" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/freetype2" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/geofence" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/gio-unix-2.0" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/glib-2.0" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/harfbuzz" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/iotcon" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/iotjs" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/json-glib-1.0" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/location" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/maps" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/media" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/media-content" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/messaging" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/metadata-editor" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/minicontrol" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/minizip" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/network" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/notification" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/notification-ex" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/notification-ex/api" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/nsd/" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/phonenumber-utils" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/privacy-privilege-manager/" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/rpc-port" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/SDL2" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/sensor" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/shortcut" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/storage" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/system" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/tef" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/tzsh" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/ui" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/ui-viewmgr" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/vulkan" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/web" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/widget_service" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/widget_viewer_dali" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/widget_viewer_evas" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/wifi-direct" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/include/yaca" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/lib/dbus-1.0/include" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/lib/glib-2.0/include" -target arm-tizen-linux-gnueabi -gcc-toolchain "C:\tizen-studio\tools\smart-build-interface/../arm-linux-gnueabi-gcc-6.2/" -ccc-gcc-name arm-linux-gnueabi-g++ -march=armv7-a -mfloat-abi=softfp -mfpu=vfpv3-d16 -mtune=cortex-a8 -Wno-gnu  -fPIE --sysroot="C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core" -mthumb --param=ssp-buffer-size=4 -mlittle-endian -mfloat-abi=softfp -Wl,--hash-style=gnu -Wp,-D__SOFTFP -Werror-implicit-function-declaration  -c ../src/real_ble.c -o src/real_ble.o
+clang.exe: warning: -Wl,--hash-style=gnu: 'linker' input unused [-Wunused-command-line-argument]
+
+../src/real_ble.c:38:15: warning: unused variable 'ret' [-Wunused-variable]
+
+   bt_error_e ret;
+
+              ^
+
+../src/real_ble.c:172:20: warning: format specifies type 'int' but the argument has type 'void *' [-Wformat]
+
+        sprintf(s2, "%d", user_data);
+
+                     ~~   ^~~~~~~~~
+
+../src/real_ble.c:154:11: warning: unused variable 'data' [-Wunused-variable]
+
+    char *data = NULL;
+
+          ^
+
+../src/real_ble.c:156:10: warning: unused variable 'found' [-Wunused-variable]
+
+    bool found;
+
+         ^
+
+../src/real_ble.c:228:14: warning: incompatible integer to pointer conversion assigning to 'void *' from 'int' [-Wint-conversion]
+
+    _section = AREA;
+
+             ^ ~~~~
+
+../src/real_ble.c:230:61: warning: format specifies type 'int' but the argument has type 'void *' [-Wformat]
+
+    dlog_print(DLOG_INFO, LOG_TAG, "Current _section = %d", _section);
+
+                                                       ~~   ^~~~~~~~
+
+../src/real_ble.c:264:9: warning: unused variable 'stack' [-Wunused-variable]
+
+    int stack[100] = {0, };
+
+        ^
+
+../src/real_ble.c:329:24: error: use of undeclared identifier 'gpio_h'
+
+        peripheral_gpio_write(gpio_h, 1);
+
+                              ^
+
+../src/real_ble.c:330:24: error: use of undeclared identifier 'gpio_h'
+
+        peripheral_gpio_write(gpio_h, 0);
+
+                              ^
+
+7 warnings and 2 errors generated.
+
+ninja: build stopped: subcommand failed.
+04:10:21 **** Incremental Build of configuration Debug for project real_BLE ****
+ninja all 
+[1/2] Building src/real_ble.o
+clang.exe: warning: -Wl,--hash-style=gnu: 'linker' input unused [-Wunused-command-line-argument]
+
+../src/real_ble.c:38:15: warning: unused variable 'ret' [-Wunused-variable]
+
+   bt_error_e ret;
+
+              ^
+
+../src/real_ble.c:172:20: warning: format specifies type 'int' but the argument has type 'void *' [-Wformat]
+
+        sprintf(s2, "%d", user_data);
+
+                     ~~   ^~~~~~~~~
+
+../src/real_ble.c:154:11: warning: unused variable 'data' [-Wunused-variable]
+
+    char *data = NULL;
+
+          ^
+
+../src/real_ble.c:156:10: warning: unused variable 'found' [-Wunused-variable]
+
+    bool found;
+
+         ^
+
+../src/real_ble.c:228:14: warning: incompatible integer to pointer conversion assigning to 'void *' from 'int' [-Wint-conversion]
+
+    _section = AREA;
+
+             ^ ~~~~
+
+../src/real_ble.c:230:61: warning: format specifies type 'int' but the argument has type 'void *' [-Wformat]
+
+    dlog_print(DLOG_INFO, LOG_TAG, "Current _section = %d", _section);
+
+                                                       ~~   ^~~~~~~~
+
+../src/real_ble.c:264:9: warning: unused variable 'stack' [-Wunused-variable]
+
+    int stack[100] = {0, };
+
+        ^
+
+7 warnings generated.
+
+[2/2] Linking real_ble
+04:16:54 **** Incremental Build of configuration Debug for project real_BLE ****
+ninja all 
+[1/2] Building src/real_ble.o
+clang.exe: warning: -Wl,--hash-style=gnu: 'linker' input unused [-Wunused-command-line-argument]
+
+../src/real_ble.c:38:15: warning: unused variable 'ret' [-Wunused-variable]
+
+   bt_error_e ret;
+
+              ^
+
+../src/real_ble.c:172:20: warning: format specifies type 'int' but the argument has type 'void *' [-Wformat]
+
+        sprintf(s2, "%d", user_data);
+
+                     ~~   ^~~~~~~~~
+
+../src/real_ble.c:154:11: warning: unused variable 'data' [-Wunused-variable]
+
+    char *data = NULL;
+
+          ^
+
+../src/real_ble.c:156:10: warning: unused variable 'found' [-Wunused-variable]
+
+    bool found;
+
+         ^
+
+../src/real_ble.c:228:14: warning: incompatible integer to pointer conversion assigning to 'void *' from 'int' [-Wint-conversion]
+
+    _section = AREA;
+
+             ^ ~~~~
+
+../src/real_ble.c:230:61: warning: format specifies type 'int' but the argument has type 'void *' [-Wformat]
+
+    dlog_print(DLOG_INFO, LOG_TAG, "Current _section = %d", _section);
+
+                                                       ~~   ^~~~~~~~
+
+../src/real_ble.c:264:9: warning: unused variable 'stack' [-Wunused-variable]
+
+    int stack[100] = {0, };
+
+        ^
+
+7 warnings generated.
+
+[2/2] Linking real_ble
+04:19:03 **** Incremental Build of configuration Debug for project real_BLE ****
+ninja all 
+[1/2] Building src/real_ble.o
+clang.exe: warning: -Wl,--hash-style=gnu: 'linker' input unused [-Wunused-command-line-argument]
+
+../src/real_ble.c:40:15: warning: unused variable 'ret' [-Wunused-variable]
+
+   bt_error_e ret;
+
+              ^
+
+../src/real_ble.c:174:20: warning: format specifies type 'int' but the argument has type 'void *' [-Wformat]
+
+        sprintf(s2, "%d", user_data);
+
+                     ~~   ^~~~~~~~~
+
+../src/real_ble.c:158:10: warning: unused variable 'found' [-Wunused-variable]
+
+    bool found;
+
+         ^
+
+../src/real_ble.c:156:11: warning: unused variable 'data' [-Wunused-variable]
+
+    char *data = NULL;
+
+          ^
+
+../src/real_ble.c:230:14: warning: incompatible integer to pointer conversion assigning to 'void *' from 'int' [-Wint-conversion]
+
+    _section = AREA;
+
+             ^ ~~~~
+
+../src/real_ble.c:232:61: warning: format specifies type 'int' but the argument has type 'void *' [-Wformat]
+
+    dlog_print(DLOG_INFO, LOG_TAG, "Current _section = %d", _section);
+
+                                                       ~~   ^~~~~~~~
+
+../src/real_ble.c:266:9: warning: unused variable 'stack' [-Wunused-variable]
+
+    int stack[100] = {0, };
+
+        ^
+
+7 warnings generated.
+
+[2/2] Linking real_ble
+04:22:04 **** Incremental Build of configuration Debug for project real_BLE ****
+ninja all 
+[1/2] Building src/real_ble.o
+clang.exe: warning: -Wl,--hash-style=gnu: 'linker' input unused [-Wunused-command-line-argument]
+
+../src/real_ble.c:40:15: warning: unused variable 'ret' [-Wunused-variable]
+
+   bt_error_e ret;
+
+              ^
+
+../src/real_ble.c:174:20: warning: format specifies type 'int' but the argument has type 'void *' [-Wformat]
+
+        sprintf(s2, "%d", user_data);
+
+                     ~~   ^~~~~~~~~
+
+../src/real_ble.c:158:10: warning: unused variable 'found' [-Wunused-variable]
+
+    bool found;
+
+         ^
+
+../src/real_ble.c:156:11: warning: unused variable 'data' [-Wunused-variable]
+
+    char *data = NULL;
+
+          ^
+
+../src/real_ble.c:230:14: warning: incompatible integer to pointer conversion assigning to 'void *' from 'int' [-Wint-conversion]
+
+    _section = AREA;
+
+             ^ ~~~~
+
+../src/real_ble.c:232:61: warning: format specifies type 'int' but the argument has type 'void *' [-Wformat]
+
+    dlog_print(DLOG_INFO, LOG_TAG, "Current _section = %d", _section);
+
+                                                       ~~   ^~~~~~~~
+
+../src/real_ble.c:266:9: warning: unused variable 'stack' [-Wunused-variable]
+
+    int stack[100] = {0, };
+
+        ^
+
+7 warnings generated.
+
+[2/2] Linking real_ble
+04:34:33 **** Incremental Build of configuration Debug for project real_BLE ****
+ninja all 
+ninja: no work to do.
+04:35:22 **** Incremental Build of configuration Debug for project real_BLE ****
+ninja all 
+[1/2] Building src/real_ble.o
+clang.exe: warning: -Wl,--hash-style=gnu: 'linker' input unused [-Wunused-command-line-argument]
+
+../src/real_ble.c:40:15: warning: unused variable 'ret' [-Wunused-variable]
+
+   bt_error_e ret;
+
+              ^
+
+../src/real_ble.c:174:20: warning: format specifies type 'int' but the argument has type 'void *' [-Wformat]
+
+        sprintf(s2, "%d", user_data);
+
+                     ~~   ^~~~~~~~~
+
+../src/real_ble.c:156:11: warning: unused variable 'data' [-Wunused-variable]
+
+    char *data = NULL;
+
+          ^
+
+../src/real_ble.c:158:10: warning: unused variable 'found' [-Wunused-variable]
+
+    bool found;
+
+         ^
+
+../src/real_ble.c:230:14: warning: incompatible integer to pointer conversion assigning to 'void *' from 'int' [-Wint-conversion]
+
+    _section = AREA;
+
+             ^ ~~~~
+
+../src/real_ble.c:232:61: warning: format specifies type 'int' but the argument has type 'void *' [-Wformat]
+
+    dlog_print(DLOG_INFO, LOG_TAG, "Current _section = %d", _section);
+
+                                                       ~~   ^~~~~~~~
+
+../src/real_ble.c:266:9: warning: unused variable 'stack' [-Wunused-variable]
+
+    int stack[100] = {0, };
+
+        ^
+
+7 warnings generated.
+
+[2/2] Linking real_ble
+04:38:08 **** Incremental Build of configuration Debug for project real_BLE ****
+ninja all 
+[1/2] Building src/real_ble.o
+clang.exe: warning: -Wl,--hash-style=gnu: 'linker' input unused [-Wunused-command-line-argument]
+
+../src/real_ble.c:41:15: warning: unused variable 'ret' [-Wunused-variable]
+
+   bt_error_e ret;
+
+              ^
+
+../src/real_ble.c:175:20: warning: format specifies type 'int' but the argument has type 'void *' [-Wformat]
+
+        sprintf(s2, "%d", user_data);
+
+                     ~~   ^~~~~~~~~
+
+../src/real_ble.c:159:10: warning: unused variable 'found' [-Wunused-variable]
+
+    bool found;
+
+         ^
+
+../src/real_ble.c:157:11: warning: unused variable 'data' [-Wunused-variable]
+
+    char *data = NULL;
+
+          ^
+
+../src/real_ble.c:231:14: warning: incompatible integer to pointer conversion assigning to 'void *' from 'int' [-Wint-conversion]
+
+    _section = AREA;
+
+             ^ ~~~~
+
+../src/real_ble.c:233:61: warning: format specifies type 'int' but the argument has type 'void *' [-Wformat]
+
+    dlog_print(DLOG_INFO, LOG_TAG, "Current _section = %d", _section);
+
+                                                       ~~   ^~~~~~~~
+
+../src/real_ble.c:267:9: warning: unused variable 'stack' [-Wunused-variable]
+
+    int stack[100] = {0, };
+
+        ^
+
+7 warnings generated.
+
+[2/2] Linking real_ble
+04:39:50 **** Incremental Build of configuration Debug for project real_BLE ****
+ninja all 
+[1/2] Building src/real_ble.o
+clang.exe: warning: -Wl,--hash-style=gnu: 'linker' input unused [-Wunused-command-line-argument]
+
+../src/real_ble.c:41:15: warning: unused variable 'ret' [-Wunused-variable]
+
+   bt_error_e ret;
+
+              ^
+
+../src/real_ble.c:175:20: warning: format specifies type 'int' but the argument has type 'void *' [-Wformat]
+
+        sprintf(s2, "%d", user_data);
+
+                     ~~   ^~~~~~~~~
+
+../src/real_ble.c:159:10: warning: unused variable 'found' [-Wunused-variable]
+
+    bool found;
+
+         ^
+
+../src/real_ble.c:157:11: warning: unused variable 'data' [-Wunused-variable]
+
+    char *data = NULL;
+
+          ^
+
+../src/real_ble.c:231:14: warning: incompatible integer to pointer conversion assigning to 'void *' from 'int' [-Wint-conversion]
+
+    _section = AREA;
+
+             ^ ~~~~
+
+../src/real_ble.c:233:61: warning: format specifies type 'int' but the argument has type 'void *' [-Wformat]
+
+    dlog_print(DLOG_INFO, LOG_TAG, "Current _section = %d", _section);
+
+                                                       ~~   ^~~~~~~~
+
+../src/real_ble.c:267:9: warning: unused variable 'stack' [-Wunused-variable]
+
+    int stack[100] = {0, };
+
+        ^
+
+7 warnings generated.
+
+[2/2] Linking real_ble
+04:49:36 **** Incremental Build of configuration Debug for project real_BLE ****
+ninja all 
+ninja: no work to do.
+04:52:26 **** Incremental Build of configuration Debug for project real_BLE ****
+ninja all 
+ninja: no work to do.
+05:17:09 **** Incremental Build of configuration Debug for project real_BLE ****
+ninja all 
+[1/3] Building src/real_ble.o
+[2/3] Building src/thingspark.o
+clang.exe: warning: -Wl,--hash-style=gnu: 'linker' input unused [-Wunused-command-line-argument]
+
+clang.exe: warning: -Wl,--hash-style=gnu: 'linker' input unused [-Wunused-command-line-argument]
+
+../src/real_ble.c:41:15: warning: unused variable 'ret' [-Wunused-variable]
+
+   bt_error_e ret;
+
+              ^
+
+../src/real_ble.c:165:20: warning: format specifies type 'int' but the argument has type 'void *' [-Wformat]
+
+        sprintf(s2, "%d", user_data);
+
+                     ~~   ^~~~~~~~~
+
+../src/real_ble.c:159:10: warning: unused variable 'found' [-Wunused-variable]
+
+    bool found;
+
+         ^
+
+../src/real_ble.c:157:11: warning: unused variable 'data' [-Wunused-variable]
+
+    char *data = NULL;
+
+          ^
+
+../src/real_ble.c:220:14: warning: incompatible integer to pointer conversion assigning to 'void *' from 'int' [-Wint-conversion]
+
+    _section = AREA;
+
+             ^ ~~~~
+
+../src/real_ble.c:222:61: warning: format specifies type 'int' but the argument has type 'void *' [-Wformat]
+
+    dlog_print(DLOG_INFO, LOG_TAG, "Current _section = %d", _section);
+
+                                                       ~~   ^~~~~~~~
+
+../src/real_ble.c:256:9: warning: unused variable 'stack' [-Wunused-variable]
+
+    int stack[100] = {0, };
+
+        ^
+
+7 warnings generated.
+
+[3/3] Linking real_ble
+06:12:34 **** Incremental Build of configuration Debug for project real_BLE ****
+ninja all 
+ninja: no work to do.
+06:33:59 **** Incremental Build of configuration Debug for project real_BLE ****
+ninja all 
+ninja: no work to do.
+06:47:47 **** Incremental Build of configuration Debug for project real_BLE ****
+ninja all 
+ninja: no work to do.
+08:12:09 **** Incremental Build of configuration Debug for project real_BLE ****
+ninja all 
+ninja: no work to do.
+08:19:38 **** Incremental Build of configuration Debug for project real_BLE ****
+ninja all 
+ninja: no work to do.
+08:35:25 **** Incremental Build of configuration Debug for project real_BLE ****
+ninja all 
+ninja: no work to do.
+08:47:31 **** Incremental Build of configuration Debug for project real_BLE ****
+ninja all 
+ninja: no work to do.
+09:00:30 **** Incremental Build of configuration Debug for project real_BLE ****
+ninja all 
+ninja: no work to do.
+09:10:04 **** Incremental Build of configuration Debug for project real_BLE ****
+ninja all 
+[1/2] Building src/real_ble.o
+clang.exe: warning: -Wl,--hash-style=gnu: 'linker' input unused [-Wunused-command-line-argument]
+
+../src/real_ble.c:41:15: warning: unused variable 'ret' [-Wunused-variable]
+
+   bt_error_e ret;
+
+              ^
+
+../src/real_ble.c:157:11: warning: unused variable 'data' [-Wunused-variable]
+
+    char *data = NULL;
+
+          ^
+
+../src/real_ble.c:159:10: warning: unused variable 'found' [-Wunused-variable]
+
+    bool found;
+
+         ^
+
+../src/real_ble.c:220:14: warning: incompatible integer to pointer conversion assigning to 'void *' from 'int' [-Wint-conversion]
+
+    _section = AREA;
+
+             ^ ~~~~
+
+../src/real_ble.c:222:61: warning: format specifies type 'int' but the argument has type 'void *' [-Wformat]
+
+    dlog_print(DLOG_INFO, LOG_TAG, "Current _section = %d", _section);
+
+                                                       ~~   ^~~~~~~~
+
+../src/real_ble.c:256:9: warning: unused variable 'stack' [-Wunused-variable]
+
+    int stack[100] = {0, };
+
+        ^
+
+6 warnings generated.
+
+[2/2] Linking real_ble
+09:10:47 **** Incremental Build of configuration Debug for project real_BLE ****
+ninja all 
+ninja: no work to do.
+09:11:06 **** Incremental Build of configuration Debug for project real_BLE ****
+ninja all 
+[1/2] Building src/real_ble.o
+clang.exe: warning: -Wl,--hash-style=gnu: 'linker' input unused [-Wunused-command-line-argument]
+
+../src/real_ble.c:41:15: warning: unused variable 'ret' [-Wunused-variable]
+
+   bt_error_e ret;
+
+              ^
+
+../src/real_ble.c:157:11: warning: unused variable 'data' [-Wunused-variable]
+
+    char *data = NULL;
+
+          ^
+
+../src/real_ble.c:159:10: warning: unused variable 'found' [-Wunused-variable]
+
+    bool found;
+
+         ^
+
+../src/real_ble.c:220:14: warning: incompatible integer to pointer conversion assigning to 'void *' from 'int' [-Wint-conversion]
+
+    _section = AREA;
+
+             ^ ~~~~
+
+../src/real_ble.c:222:61: warning: format specifies type 'int' but the argument has type 'void *' [-Wformat]
+
+    dlog_print(DLOG_INFO, LOG_TAG, "Current _section = %d", _section);
+
+                                                       ~~   ^~~~~~~~
+
+../src/real_ble.c:256:9: warning: unused variable 'stack' [-Wunused-variable]
+
+    int stack[100] = {0, };
+
+        ^
+
+6 warnings generated.
+
+[2/2] Linking real_ble
+09:11:54 **** Incremental Build of configuration Debug for project real_BLE ****
+ninja all 
+ninja: no work to do.
+09:15:36 **** Incremental Build of configuration Debug for project real_BLE ****
+ninja all 
+[1/2] Building src/real_ble.o
+clang.exe: warning: -Wl,--hash-style=gnu: 'linker' input unused [-Wunused-command-line-argument]
+
+../src/real_ble.c:41:15: warning: unused variable 'ret' [-Wunused-variable]
+
+   bt_error_e ret;
+
+              ^
+
+../src/real_ble.c:159:10: warning: unused variable 'found' [-Wunused-variable]
+
+    bool found;
+
+         ^
+
+../src/real_ble.c:157:11: warning: unused variable 'data' [-Wunused-variable]
+
+    char *data = NULL;
+
+          ^
+
+../src/real_ble.c:221:14: warning: incompatible integer to pointer conversion assigning to 'void *' from 'int' [-Wint-conversion]
+
+    _section = AREA;
+
+             ^ ~~~~
+
+../src/real_ble.c:223:61: warning: format specifies type 'int' but the argument has type 'void *' [-Wformat]
+
+    dlog_print(DLOG_INFO, LOG_TAG, "Current _section = %d", _section);
+
+                                                       ~~   ^~~~~~~~
+
+../src/real_ble.c:257:9: warning: unused variable 'stack' [-Wunused-variable]
+
+    int stack[100] = {0, };
+
+        ^
+
+6 warnings generated.
+
+[2/2] Linking real_ble
+09:16:54 **** Incremental Build of configuration Debug for project real_BLE ****
+ninja all 
+[1/2] Building src/real_ble.o
+clang.exe: warning: -Wl,--hash-style=gnu: 'linker' input unused [-Wunused-command-line-argument]
+
+../src/real_ble.c:41:15: warning: unused variable 'ret' [-Wunused-variable]
+
+   bt_error_e ret;
+
+              ^
+
+../src/real_ble.c:221:14: warning: incompatible integer to pointer conversion assigning to 'void *' from 'int' [-Wint-conversion]
+
+    _section = AREA;
+
+             ^ ~~~~
+
+../src/real_ble.c:223:61: warning: format specifies type 'int' but the argument has type 'void *' [-Wformat]
+
+    dlog_print(DLOG_INFO, LOG_TAG, "Current _section = %d", _section);
+
+                                                       ~~   ^~~~~~~~
+
+../src/real_ble.c:257:9: warning: unused variable 'stack' [-Wunused-variable]
+
+    int stack[100] = {0, };
+
+        ^
+
+4 warnings generated.
+
+[2/2] Linking real_ble
+09:18:21 **** Incremental Build of configuration Debug for project real_BLE ****
+ninja all 
+[1/2] Building src/real_ble.o
+clang.exe: warning: -Wl,--hash-style=gnu: 'linker' input unused [-Wunused-command-line-argument]
+
+../src/real_ble.c:41:15: warning: unused variable 'ret' [-Wunused-variable]
+
+   bt_error_e ret;
+
+              ^
+
+../src/real_ble.c:223:14: warning: incompatible integer to pointer conversion assigning to 'void *' from 'int' [-Wint-conversion]
+
+    _section = AREA;
+
+             ^ ~~~~
+
+../src/real_ble.c:225:61: warning: format specifies type 'int' but the argument has type 'void *' [-Wformat]
+
+    dlog_print(DLOG_INFO, LOG_TAG, "Current _section = %d", _section);
+
+                                                       ~~   ^~~~~~~~
+
+../src/real_ble.c:259:9: warning: unused variable 'stack' [-Wunused-variable]
+
+    int stack[100] = {0, };
+
+        ^
+
+4 warnings generated.
+
+[2/2] Linking real_ble
+09:19:33 **** Incremental Build of configuration Debug for project real_BLE ****
+ninja all 
+[1/2] Building src/real_ble.o
+clang.exe: warning: -Wl,--hash-style=gnu: 'linker' input unused [-Wunused-command-line-argument]
+
+../src/real_ble.c:41:15: warning: unused variable 'ret' [-Wunused-variable]
+
+   bt_error_e ret;
+
+              ^
+
+../src/real_ble.c:224:14: warning: incompatible integer to pointer conversion assigning to 'void *' from 'int' [-Wint-conversion]
+
+    _section = AREA;
+
+             ^ ~~~~
+
+../src/real_ble.c:226:61: warning: format specifies type 'int' but the argument has type 'void *' [-Wformat]
+
+    dlog_print(DLOG_INFO, LOG_TAG, "Current _section = %d", _section);
+
+                                                       ~~   ^~~~~~~~
+
+../src/real_ble.c:260:9: warning: unused variable 'stack' [-Wunused-variable]
+
+    int stack[100] = {0, };
+
+        ^
+
+4 warnings generated.
+
+[2/2] Linking real_ble
+09:21:30 **** Incremental Build of configuration Debug for project real_BLE ****
+ninja all 
+[1/2] Building src/real_ble.o
+clang.exe: warning: -Wl,--hash-style=gnu: 'linker' input unused [-Wunused-command-line-argument]
+
+../src/real_ble.c:41:15: warning: unused variable 'ret' [-Wunused-variable]
+
+   bt_error_e ret;
+
+              ^
+
+../src/real_ble.c:224:14: warning: incompatible integer to pointer conversion assigning to 'void *' from 'int' [-Wint-conversion]
+
+    _section = AREA;
+
+             ^ ~~~~
+
+../src/real_ble.c:226:61: warning: format specifies type 'int' but the argument has type 'void *' [-Wformat]
+
+    dlog_print(DLOG_INFO, LOG_TAG, "Current _section = %d", _section);
+
+                                                       ~~   ^~~~~~~~
+
+../src/real_ble.c:260:9: warning: unused variable 'stack' [-Wunused-variable]
+
+    int stack[100] = {0, };
+
+        ^
+
+4 warnings generated.
+
+[2/2] Linking real_ble
+09:22:26 **** Incremental Build of configuration Debug for project real_BLE ****
+ninja all 
+[1/2] Building src/real_ble.o
+clang.exe: warning: -Wl,--hash-style=gnu: 'linker' input unused [-Wunused-command-line-argument]
+
+../src/real_ble.c:41:15: warning: unused variable 'ret' [-Wunused-variable]
+
+   bt_error_e ret;
+
+              ^
+
+../src/real_ble.c:224:14: warning: incompatible integer to pointer conversion assigning to 'void *' from 'int' [-Wint-conversion]
+
+    _section = AREA;
+
+             ^ ~~~~
+
+../src/real_ble.c:226:61: warning: format specifies type 'int' but the argument has type 'void *' [-Wformat]
+
+    dlog_print(DLOG_INFO, LOG_TAG, "Current _section = %d", _section);
+
+                                                       ~~   ^~~~~~~~
+
+../src/real_ble.c:260:9: warning: unused variable 'stack' [-Wunused-variable]
+
+    int stack[100] = {0, };
+
+        ^
+
+4 warnings generated.
+
+[2/2] Linking real_ble
+09:24:51 **** Incremental Build of configuration Debug for project real_BLE ****
+ninja all 
+[1/2] Building src/real_ble.o
+clang.exe: warning: -Wl,--hash-style=gnu: 'linker' input unused [-Wunused-command-line-argument]
+
+../src/real_ble.c:41:15: warning: unused variable 'ret' [-Wunused-variable]
+
+   bt_error_e ret;
+
+              ^
+
+../src/real_ble.c:222:14: warning: incompatible integer to pointer conversion assigning to 'void *' from 'int' [-Wint-conversion]
+
+    _section = AREA;
+
+             ^ ~~~~
+
+../src/real_ble.c:224:61: warning: format specifies type 'int' but the argument has type 'void *' [-Wformat]
+
+    dlog_print(DLOG_INFO, LOG_TAG, "Current _section = %d", _section);
+
+                                                       ~~   ^~~~~~~~
+
+../src/real_ble.c:258:9: warning: unused variable 'stack' [-Wunused-variable]
+
+    int stack[100] = {0, };
+
+        ^
+
+4 warnings generated.
+
+[2/2] Linking real_ble
+09:26:11 **** Incremental Build of configuration Debug for project real_BLE ****
+ninja all 
+[1/2] Building src/real_ble.o
+clang.exe: warning: -Wl,--hash-style=gnu: 'linker' input unused [-Wunused-command-line-argument]
+
+../src/real_ble.c:41:15: warning: unused variable 'ret' [-Wunused-variable]
+
+   bt_error_e ret;
+
+              ^
+
+../src/real_ble.c:221:14: warning: incompatible integer to pointer conversion assigning to 'void *' from 'int' [-Wint-conversion]
+
+    _section = AREA;
+
+             ^ ~~~~
+
+../src/real_ble.c:223:61: warning: format specifies type 'int' but the argument has type 'void *' [-Wformat]
+
+    dlog_print(DLOG_INFO, LOG_TAG, "Current _section = %d", _section);
+
+                                                       ~~   ^~~~~~~~
+
+../src/real_ble.c:257:9: warning: unused variable 'stack' [-Wunused-variable]
+
+    int stack[100] = {0, };
+
+        ^
+
+4 warnings generated.
+
+[2/2] Linking real_ble
+09:29:21 **** Incremental Build of configuration Debug for project real_BLE ****
+ninja all 
+[1/2] Building src/real_ble.o
+clang.exe: warning: -Wl,--hash-style=gnu: 'linker' input unused [-Wunused-command-line-argument]
+
+../src/real_ble.c:41:15: warning: unused variable 'ret' [-Wunused-variable]
+
+   bt_error_e ret;
+
+              ^
+
+../src/real_ble.c:165:20: warning: format specifies type 'int' but the argument has type 'void *' [-Wformat]
+
+        sprintf(s2, "%d", user_data);
+
+                     ~~   ^~~~~~~~~
+
+../src/real_ble.c:221:14: warning: incompatible integer to pointer conversion assigning to 'void *' from 'int' [-Wint-conversion]
+
+    _section = AREA;
+
+             ^ ~~~~
+
+../src/real_ble.c:223:61: warning: format specifies type 'int' but the argument has type 'void *' [-Wformat]
+
+    dlog_print(DLOG_INFO, LOG_TAG, "Current _section = %d", _section);
+
+                                                       ~~   ^~~~~~~~
+
+../src/real_ble.c:257:9: warning: unused variable 'stack' [-Wunused-variable]
+
+    int stack[100] = {0, };
+
+        ^
+
+5 warnings generated.
+
+[2/2] Linking real_ble
+09:45:32 **** Incremental Build of configuration Debug for project real_BLE ****
+ninja all 
+ninja: no work to do.
+10:01:07 **** Incremental Build of configuration Debug for project real_BLE ****
+ninja all 
+ninja: no work to do.
+10:22:01 **** Incremental Build of configuration Debug for project real_BLE ****
+ninja all 
+ninja: no work to do.

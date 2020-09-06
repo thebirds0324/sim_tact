@@ -1,0 +1,42 @@
+#include <message_port.h>
+
+#include "real_BLE.h"
+
+static int local_port_id;
+
+static void message_port_cb(int local_port_id, const char *remote_app_id, const char *remote_port,
+                bool trusted_remote_port, bundle *message, void *user_data)
+{
+    char *data = NULL;
+    int ret;
+    bool found;
+
+    /* From another application */
+    bundle_get_str(message, "data", &data);
+    dlog_print(DLOG_INFO, LOG_TAG, "Message from %s:%s, data : %s",
+               remote_app_id, remote_port, data);
+    /* To the application */
+    ret = message_port_check_remote_port(remote_app_id, remote_port, &found);
+    if (ret != MESSAGE_PORT_ERROR_NONE)
+        dlog_print(DLOG_ERROR, LOG_TAG, "message_port_check_remote_port error: %d", ret);
+
+    if(found) {
+		bundle *b = bundle_create();
+		bundle_add_str(b, "response data", "OK");
+		ret = message_port_send_message_with_local_port(remote_app_id, remote_port, b, local_port_id);
+		if (ret != MESSAGE_PORT_ERROR_NONE)
+			dlog_print(DLOG_ERROR, LOG_TAG, "message_port_send_message error: %d", ret);
+		else
+			dlog_print(DLOG_INFO, LOG_TAG, "Send message done");
+		bundle_free(b);
+    }
+}
+
+void create_bi_directional_message_port(const char *local_port)
+{
+	local_port_id = message_port_register_local_port(local_port, message_port_cb, NULL);
+	if (local_port_id < 0)
+	    dlog_print(DLOG_ERROR, LOG_TAG, "Port register error: %d", local_port_id);
+	else
+	    dlog_print(DLOG_INFO, LOG_TAG, "port_id: %d", local_port_id);
+}

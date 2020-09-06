@@ -1,0 +1,14 @@
+#ifndef __real_ble_H__
+#define __real_ble_H__
+
+#include <dlog.h>
+
+#ifdef  LOG_TAG
+#undef  LOG_TAG
+#endif
+#define LOG_TAG "real_ble"
+
+void create_bi_directional_message_port(const char *local_port);
+
+#endif /* __real_ble_H__ */
+

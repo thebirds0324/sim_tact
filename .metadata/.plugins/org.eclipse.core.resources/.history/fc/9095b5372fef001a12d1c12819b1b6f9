@@ -1,0 +1,17 @@
+#ifndef __real_ble_H__
+#define __real_ble_H__
+
+#include <dlog.h>
+
+#ifdef  LOG_TAG
+#undef  LOG_TAG
+#endif
+#define LOG_TAG "real_ble"
+
+#define void create_bi_directional_message_port(const char *local_port);
+#define void __bt_adapter_le_scan_result_cb(int result, bt_adapter_le_device_scan_result_info_s *info, void *user_data);
+#define int get_Area(int _stack[100], int _key, int _ind);
+#define Eina_Bool my_timed_cb(void *data);
+
+#endif /* __real_ble_H__ */
+

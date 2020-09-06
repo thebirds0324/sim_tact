@@ -1,0 +1,384 @@
+#include <tizen.h>
+#include <service_app.h>
+#include "real_ble.h"
+#include <bluetooth.h>
+#include <dlog.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <string.h>
+#include <json-glib/json-glib.h>
+#include <Ecore.h>
+#include "thingspark.h"
+#include "log.h"
+#include <message_port.h>
+#include <peripheral_io.h>
+
+#define SENSOR_LED_GPIO_NUMBER (12)
+peripheral_gpio_h gpio_h = NULL;
+
+Ecore_Timer *timer;
+
+int ind = 0;			// Index of stack
+int _key = 0;			// UUID with the shortest distance at one time
+double key_D = 2.0;		// Distance of key
+char **uuids;			// Each BLE UUID
+char *uuid;				// Save uuids
+int count;				// Input
+double n = 2.0;			// Constant (radio wave loss)
+int tx = -65;			// TX power level
+int stack[100] = {0, };	// Group of UUID recieved at one time
+double threshold = 1.0;	// Distance threshold
+int num = 0;			// For type conversion
+double distance = 0;	// Each BLE distance
+int AREA;				// Area return value
+int section;
+
+void
+__bt_adapter_le_scan_result_cb(int result, bt_adapter_le_device_scan_result_info_s *info, void *user_data)
+{
+
+   bt_error_e ret;
+   bt_adapter_le_packet_type_e pkt_type = BT_ADAPTER_LE_PACKET_ADVERTISING;
+
+   if (info->adv_data_len > 31 || info->scan_data_len > 31) {
+      dlog_print(DLOG_INFO, LOG_TAG, "###################");
+      bt_adapter_le_stop_scan();
+      dlog_print(DLOG_INFO, LOG_TAG, "###################");
+
+      return;
+   }
+
+      pkt_type += 1;
+
+      // Get UUID and distance
+      if (bt_adapter_le_get_scan_result_service_uuids(info, pkt_type, &uuids, &count) == BT_ERROR_NONE)
+      {
+    	  uuid = uuids[0];
+    	  distance = pow(10, ((tx-info->rssi) / (10*n)));
+    	  dlog_print(DLOG_INFO, LOG_TAG, "Distance[%s] = %0.3f", uuids[0], distance);
+      }
+
+      // Apply Threshold
+      if(distance < threshold){
+    	  uuid = uuids[0];
+    	  num = atoi(uuid);
+    	  stack[ind] = num;
+    	  ind++;
+    	  for(int k = 0; k < ind; k++){
+    		  dlog_print(DLOG_INFO, LOG_TAG, "stack[%d] = %d", k, stack[k]);
+    	  }
+    	  // Renew key
+    	  if(distance < key_D){
+    		  _key = atoi(uuid);
+    		  key_D = distance;
+    		  //dlog_print(DLOG_INFO, LOG_TAG, "key = %d", _key);
+    	  }
+    	  g_free(uuids[0]);
+      }
+}
+
+int get_Area(int _stack[100], int _key, int _ind)
+{
+	/*for(int t = 0; t < _ind; t++)
+	{
+		dlog_print(DLOG_INFO, LOG_TAG, "_stack[%d] = %d", t, _stack[t]);
+	}
+	dlog_print(DLOG_INFO, LOG_TAG, "_key = %d", _key);
+	dlog_print(DLOG_INFO, LOG_TAG, "_ind = %d", _ind);*/
+
+	int Area = 0;	// Return value (Area)
+
+	// If there is not enough data.
+	if(_ind < 3){
+		Area = 0;
+	}
+
+	// Set area
+	const int section = 3;
+	int area[section][4] = {
+			{3, 4, 5, 1},
+			{4, 1, 7, 8},
+			{2, 2, 2, 2}
+	};
+
+	// Area sorting with key
+	int area_ind[4];
+	int a_ind = 0;
+	for(int i1 = 0; i1 < section;i1++){
+		for(int i2 = 0; i2 < 4; i2++){
+			if(_key == area[i1][i2]){
+				area_ind[a_ind] = i1;
+				a_ind++;
+				break;
+			}
+		}
+	}
+
+	// Area similarity calculation
+	int MAX_check_elm = 0;
+	for(int k1 = 0; k1 < a_ind; k1++){
+		int check_elm = 0;
+		for(int k2 = 0; k2 < 4; k2++){
+			for(int k3 = 0; k3 < _ind; k3++){
+				if(area[area_ind[k1]][k2] == _stack[k3]){
+					check_elm++;
+					break;
+				}
+			}
+		}
+		if(check_elm == 4){
+			if(MAX_check_elm == 4){
+				break;
+			}else{
+				Area = area_ind[k1] + 1;
+				MAX_check_elm = 4;
+			}
+		}else if(check_elm == 3){
+			if(MAX_check_elm == 0){
+				Area = area_ind[k1] + 1;
+				MAX_check_elm = 3;
+			}else{
+				continue;
+			}
+		}else{
+			continue;
+		}
+	}
+
+	return Area;
+}
+
+static int local_port_id;
+
+static void message_port_cb(int local_port_id, const char *remote_app_id, const char *remote_port,bool trusted_remote_port, bundle *message, void *user_data)
+{
+	dlog_print(DLOG_INFO, LOG_TAG, "Access message_port_cb");
+    char *data = NULL;
+    int ret;
+    bool found;
+
+	remote_port = "sample_ui_port";
+
+    bundle *b = bundle_create();
+	char s2[10];
+	sprintf(s2, "%d", user_data);
+	bundle_add_str(b, "response data", s2);
+	ret = message_port_send_message_with_local_port(remote_app_id, remote_port, b, local_port_id);
+	if (ret != MESSAGE_PORT_ERROR_NONE)
+		dlog_print(DLOG_ERROR, LOG_TAG, "message_port_send_message error: %d", ret);
+	else
+		dlog_print(DLOG_INFO, LOG_TAG, "Send message done");
+
+	bundle_free(b);
+}
+
+
+Eina_Bool my_timed_cb(void *data)
+{
+	static int count = 0;
+	count++;
+    //dlog_print(DLOG_INFO, LOG_TAG, "ind = %d / _key = %d / key_D = %f / stack[0] = %d / num = %d / distance = %f", ind, _key, key_D, stack[0], num, distance);
+    dlog_print(DLOG_INFO, LOG_TAG, "[%d] Timer_Start", count);
+
+    int _stack[100] = {0, };	// Save deduplicated stack
+    int _ind = 0;				// Index of _stack
+
+    // Deduplicated stack
+    for(int k = 0; k < ind; k++)
+    {
+    	int check = 0;
+    	for(int i = 0; i < ind; i++)
+    	{
+    		if(stack[k] == _stack[i]){
+    			check = 1;
+    			break;
+    		}
+    	}
+    	if(check == 0){
+    		_stack[_ind] = stack[k];
+    		_ind++;
+    	}
+    	//dlog_print(DLOG_INFO, LOG_TAG, "check = %d", check);
+    }
+    for(int t = 0; t < _ind; t++)
+    {
+    	dlog_print(DLOG_INFO, LOG_TAG, "_stack[%d] = %d", t, _stack[t]);
+    }
+    dlog_print(DLOG_INFO, LOG_TAG, "key = %d", _key);
+
+    // Get area
+    int _AREA;
+    _AREA = get_Area(_stack, _key, _ind);
+    if(_AREA != 0){
+    	AREA = _AREA;
+    }
+
+    dlog_print(DLOG_INFO, LOG_TAG, "Current _Area = %d", _AREA);
+
+    void *_section;
+    _section = AREA;
+
+    dlog_print(DLOG_INFO, LOG_TAG, "Current _section = %d", _section);
+
+   	local_port_id = message_port_register_local_port("real_ble", message_port_cb, _section);
+   	if (local_port_id < 0)
+   	    dlog_print(DLOG_ERROR, LOG_TAG, "Port register error: %d", local_port_id);
+   	else
+   	    dlog_print(DLOG_INFO, LOG_TAG, "port_id: %d", local_port_id);
+
+
+    // interlock thingspark
+    int ret_cloud = 0;
+    tp_handle_h handle = NULL;
+	ret_cloud = tp_initialize("mN2fIhVZXtIAfRYj", &handle);
+	retv_if(ret_cloud != 0, -1);
+
+	char s1[10];
+	sprintf(s1, "%d", AREA);
+
+	// Set field
+	ret_cloud = tp_set_field_value(handle, 1, s1);
+	retv_if(ret_cloud != 0, -1);
+
+	// Transferring area data to a server
+	ret_cloud = tp_send_data(handle);
+	retv_if(ret_cloud != 0, -1);
+
+	// Thingspark handle edd
+	ret_cloud = tp_finalize(handle);
+	retv_if(ret_cloud != 0, -1);
+
+	// Initialize
+    ind = 0;
+    _key = 0;
+    key_D = 2.0;
+    int stack[100] = {0, };
+    num = 0;
+    distance = 0;
+
+    //dlog_print(DLOG_INFO, LOG_TAG, "ind = %d / _key = %d / key_D = %f / stack[0] = %d / num = %d / distance = %f", ind, _key, key_D, stack[0], num, distance);
+    //dlog_print(DLOG_INFO, LOG_TAG, "_ind = %d", _ind);
+
+	return ECORE_CALLBACK_RENEW;
+}
+
+
+bool service_app_create(void *data)
+{
+
+	dlog_print(DLOG_INFO, LOG_TAG, "App Create");
+
+	// Initialize BLE
+	bt_error_e ret;
+	ret = bt_initialize();
+	dlog_print(DLOG_INFO, LOG_TAG, "Initialize BLE");
+
+	peripheral_gpio_open(SENSOR_LED_GPIO_NUMBER, &gpio_h);
+	peripheral_gpio_set_direction(gpio_h, PERIPHERAL_GPIO_DIRECTION_OUT_INITIALLY_LOW);
+
+	peripheral_gpio_write(gpio_h, 1);
+
+	dlog_print(DLOG_INFO, LOG_TAG, "Turn on LED");
+
+	// Regist BLE Filter
+	char device_name[10] = "HMSoft"; //BLE device name
+	bt_scan_filter_h scan_filter;
+
+	ret = bt_adapter_le_scan_filter_create(&scan_filter);
+	if (ret != BT_ERROR_NONE)
+	   dlog_print(DLOG_ERROR, LOG_TAG, "Could not create scan filter");
+	else
+	   dlog_print(DLOG_ERROR, LOG_TAG, "Success1");
+
+	ret = bt_adapter_le_scan_filter_set_device_name(scan_filter, device_name);
+	if (ret != BT_ERROR_NONE)
+	    dlog_print(DLOG_ERROR, LOG_TAG, "Could not set device address");
+	else
+	   dlog_print(DLOG_ERROR, LOG_TAG, "Success2");
+
+	ret = bt_adapter_le_scan_filter_register(scan_filter);
+	if (ret != BT_ERROR_NONE)
+	   dlog_print(DLOG_ERROR, LOG_TAG, "Could not regist filter");
+	else
+	   dlog_print(DLOG_ERROR, LOG_TAG, "Success2");
+	dlog_print(DLOG_INFO, LOG_TAG, "Regist BLE Filter");
+
+    return true;
+}
+
+void service_app_terminate(void *data)
+{
+	// App terminate
+	dlog_print(DLOG_INFO, LOG_TAG, "The end");
+	AREA = 0;
+	if(timer){
+		ecore_timer_del(timer);
+	}
+	peripheral_gpio_write(gpio_h, 1);
+	peripheral_gpio_write(gpio_h, 0);
+	return;
+}
+
+void service_app_control(app_control_h app_control, void *data)
+{
+	dlog_print(DLOG_INFO, LOG_TAG, "Access App Control");
+
+	peripheral_gpio_write(gpio_h, 0);
+
+	// Start BLE Scan
+	bt_error_e ret;
+	ret = bt_adapter_le_start_scan(__bt_adapter_le_scan_result_cb, NULL);
+	dlog_print(DLOG_INFO, LOG_TAG, "Start BLE Scan");
+
+	// Set timer
+	ecore_timer_add(3.0, my_timed_cb, NULL);
+	dlog_print(DLOG_INFO, LOG_TAG, "Set timer");
+
+    return;
+}
+
+static void
+service_app_lang_changed(app_event_info_h event_info, void *user_data)
+{
+	/*APP_EVENT_LANGUAGE_CHANGED*/
+	return;
+}
+
+static void
+service_app_region_changed(app_event_info_h event_info, void *user_data)
+{
+	/*APP_EVENT_REGION_FORMAT_CHANGED*/
+}
+
+static void
+service_app_low_battery(app_event_info_h event_info, void *user_data)
+{
+	/*APP_EVENT_LOW_BATTERY*/
+}
+
+static void
+service_app_low_memory(app_event_info_h event_info, void *user_data)
+{
+	/*APP_EVENT_LOW_MEMORY*/
+}
+
+int main(int argc, char* argv[])
+{
+
+    char ad[50] = {0,};
+	service_app_lifecycle_callback_s event_callback;
+	app_event_handler_h handlers[5] = {NULL, };
+
+	event_callback.create = service_app_create;
+	event_callback.terminate = service_app_terminate;
+	event_callback.app_control = service_app_control;
+
+	service_app_add_event_handler(&handlers[APP_EVENT_LOW_BATTERY], APP_EVENT_LOW_BATTERY, service_app_low_battery, &ad);
+	service_app_add_event_handler(&handlers[APP_EVENT_LOW_MEMORY], APP_EVENT_LOW_MEMORY, service_app_low_memory, &ad);
+	service_app_add_event_handler(&handlers[APP_EVENT_LANGUAGE_CHANGED], APP_EVENT_LANGUAGE_CHANGED, service_app_lang_changed, &ad);
+	service_app_add_event_handler(&handlers[APP_EVENT_REGION_FORMAT_CHANGED], APP_EVENT_REGION_FORMAT_CHANGED, service_app_region_changed, &ad);
+
+	dlog_print(DLOG_INFO, LOG_TAG, "App Start");
+	return service_app_main(argc, argv, &event_callback, ad);
+}
