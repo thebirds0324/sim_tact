@@ -12,7 +12,6 @@ namespace CartProject.Models
 
 
         [PrimaryKey, AutoIncrement, Column("AdsId")]
-
         public int ID { get; set; }
         public Uri Text { get; set; }
         public int Section { get; set; }

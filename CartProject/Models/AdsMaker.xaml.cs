@@ -43,7 +43,9 @@ namespace CartProject.Models
             var test1 = new Ads();
             var test2 = new Ads();
             test1.Text = new Uri("https://i.imgur.com/aJOvLO6.png");
+            test1.Section = 2;
             test2.Text = new Uri("https://i.imgur.com/juoDrb7.png");
+            test2.Section = 3;
 
             await App.Database_Ads.SaveAdsAsync(test1);
             await App.Database_Ads.SaveAdsAsync(test2);

@@ -61,7 +61,6 @@ C:\Users\Younggeon Park\Source\Repos\thebirds0324\sim_tact\CartProject.iOS\obj\i
 C:\Users\Younggeon Park\Source\Repos\thebirds0324\sim_tact\CartProject.iOS\obj\iPhone\Debug\optimized\
 C:\Users\Younggeon Park\Source\Repos\thebirds0324\sim_tact\CartProject.iOS\obj\iPhone\Debug\CartProject.iOS.csprojAssemblyReference.cache
 C:\Users\Younggeon Park\Source\Repos\thebirds0324\sim_tact\CartProject.iOS\obj\iPhone\Debug\CartProject.iOS.csproj.CoreCompileInputs.cache
-C:\Users\Younggeon Park\Source\Repos\thebirds0324\sim_tact\CartProject.iOS\obj\iPhone\Debug\XamlC.stamp
 C:\Users\Younggeon Park\Source\Repos\thebirds0324\sim_tact\CartProject.iOS\obj\iPhone\Debug\CartProject.iOS.csproj.CopyComplete
 C:\Users\Younggeon Park\Source\Repos\thebirds0324\sim_tact\CartProject.iOS\obj\iPhone\Debug\CartProject.iOS.exe
 C:\Users\Younggeon Park\Source\Repos\thebirds0324\sim_tact\CartProject.iOS\obj\iPhone\Debug\CartProject.iOS.pdb

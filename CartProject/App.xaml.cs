@@ -24,7 +24,7 @@ namespace CartProject
        
         public App()
         {
-            InitializeComponent();
+            //InitializeComponent();
             MainPage = new NavigationPage(new CartProject.Views.ListPage());
         }
 
