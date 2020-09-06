@@ -44,7 +44,7 @@
 
 ## 보드
 * RPI4 : BLE신호 수신 및 현재위치 계산. 상품정보 디스플레잉. (https://github.com/thebirds0324/sim_tact/tree/Version1.3_UI_Final)
-* 아두이노 우노 : 비콘 업로드 (https://github.com/thebirds0324/sim_tact/blob/master/beacon_upload.ino)
+* 아두이노 우노 : 비콘 업로드 
 
 
 
