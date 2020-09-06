@@ -21,7 +21,7 @@
 * 박민아 : HW 디버깅, 아두이노(비콘) 
 
 <p align="center">
-<img width="250" alt="KakaoTalk_20200906_104108646_01" src="https://user-images.githubusercontent.com/52956065/92316384-2b124180-f02e-11ea-8944-ba0339174f20.jpg">
+<img width="500" alt="KakaoTalk_20200906_104108646_01" src="https://user-images.githubusercontent.com/52956065/92316384-2b124180-f02e-11ea-8944-ba0339174f20.jpg">
   </p>
 
 ## 프로젝트 목적 
@@ -96,6 +96,11 @@
 3) 25도 기울여서 사용자가 보기 편하도록 설계
 4) 무게 경량화
 
+
+<h4 align="center"> [ 상업화(예상) ] </h4>
+<img width="550" alt="KakaoTalk_20200906_112955632" src="https://user-images.githubusercontent.com/52956065/92316889-f8b81280-f034-11ea-98b9-e112b1b269d8.png">
+  </p>
+  
 
 ## 구현사항(가산점)
 sim_tact/real_BLE/src/real_ble.c 18번째 줄 peripheral_gpio_h gpio_h = NULL; 사용.
