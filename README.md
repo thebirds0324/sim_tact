@@ -4,7 +4,8 @@
   </p>
 
 ## 시연 동영상
-[![Watch the video]()](https://youtu.be/euSKnWlC29Q)
+[![Watch the video](https://user-images.githubusercontent.com/52956065/92318294-fb226880-f044-11ea-82eb-ee0660d4ead9.png)](https://youtu.be/euSKnWlC29Q)
+
 
 나만의 쇼핑 광고판 Mynage
 ============= 
