@@ -90,6 +90,11 @@
 <img width="550" alt="KakaoTalk_20200906_003203923" src="https://user-images.githubusercontent.com/52956065/92316670-87776000-f032-11ea-8392-f75153624145.png">
   </p>
 
+특징
+1) LCD 사이즈에 맞추어 설계
+2) 무게중심을 중앙에 맞추어 한 쪽으로 미끄러지지 않도록 설계
+3) 25도 기울여서 사용자가 보기 편하도록 설계
+4) 무게 경량화
 
 ## 구현사항(가산점)
 sim_tact/real_BLE/src/real_ble.c 18번째 줄 peripheral_gpio_h gpio_h = NULL; 사용.
