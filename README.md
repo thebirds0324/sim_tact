@@ -1,7 +1,10 @@
 ### 2020 서울 하드웨어 해커톤 sim_tact 팀
-
+<p align="center">
+<img width="700" alt="yky" src="https://user-images.githubusercontent.com/49704910/92316397-5563ff00-f02e-11ea-968a-dc2138afe906.png">
+  </p>
+  
 나만의 쇼핑 광고판 Mynage
-=============
+============= 
 언택트 시대에 필요한 기술로 저희는 Mynage(마이니지)를 제안합니다. 마이니지는 My와 Signage의 합성어로, 카트에 부착하여 사용하는 위치 기반의 판촉 시스템입니다.  
 &nbsp;
 &nbsp;
@@ -17,21 +20,32 @@
 * 최현경 : HW개발
 * 박민아 : HW 디버깅, 아두이노(비콘) 
 
-
-
+<p align="center">
+<img width="250" alt="KakaoTalk_20200906_104108646_01" src="https://user-images.githubusercontent.com/52956065/92316384-2b124180-f02e-11ea-8944-ba0339174f20.jpg">
+  </p>
 
 ## 프로젝트 목적 
-&nbsp; 
-코로나 언택트 시대를 살고있음에도 아직 마트의 판촉 시스템은 사람이 직접 컨택하는 형태를 띄고 있습니다. 또한 판촉상품이 아닌 물건들에 대해서는 직접 찾아보지 않는이상 구매가 쉽지 않습니다. 우리는 지하철에서도 쉽게 볼 수 있는 디지털 광고판인 사이니지에서 영감을 얻어 카트에 탈부착 가능한 디지털 사이니지 시스템을 기획하게 되었습니다. 이는 무작위 추천이 아닌 위치센서(비콘)를 기반으로 현재 위치에서 판매하는 물품을 추천할 수 있는 시스템입니다.
+<p align="center">
+<img width="800" src="https://user-images.githubusercontent.com/49704910/92316398-572dc280-f02e-11ea-9a4e-46fd508126e0.png">
+  </p>
+  
+코로나로 인한 언택트 시대를 살고있음에도 아직 마트의 판촉 시스템은 사람이 직접 컨택하는 형태를 띄고 있습니다. 또한 판촉상품이 아닌 물건들에 대해서는 직접 찾아보지 않는이상 구매가 쉽지 않습니다. 우리는 지하철에서도 쉽게 볼 수 있는 디지털 광고판인 사이니지에서 영감을 얻어 카트에 탈부착 하여 사용할 수 있는 디지털 사이니지 시스템을 기획하였습니다. 이는 기존 사이니지의 무작위 추천이 아닌 위치센서(비콘)를 기반으로 현재 위치에서 판매하는 물품을 추천할 수 있는 시스템입니다.
 
 
- 
+
+
+## 파일 리스트
+*tizen
+|파일이름|내용|기여자|
+|------|---|---|
+|real_ble.c|background에서 비콘 위치를 기반으로 현재 구역 특정|최현경|
+|ListPage.xaml.cs|Tizen UI|박영건|
 
 
 
 ## 보드
-* RPI4 : BLE신호 수신 및 현재위치 계산. 상품정보 업로드 (github.com/~)
-* 아두이노 우노 : 비콘 업로드 (github.com/thebirds0324/sim_tact/blob/master/beacon_upload.ino)
+* RPI4 : BLE신호 수신 및 현재위치 계산. 상품정보 디스플레잉. (https://github.com/thebirds0324/sim_tact/tree/Version1.3_UI_Final)
+* 아두이노 우노 : 비콘 업로드 (https://github.com/thebirds0324/sim_tact/blob/master/beacon_upload.ino)
 
 
 
@@ -41,12 +55,10 @@
 
 <h4 align="center"> [ Front-end 구상도 ] </h4>
 <p align="center">
-<img width="914" alt="스크린샷 2020-09-04 오후 7 20 41" src="https://user-images.githubusercontent.com/49704910/92229001-c0ed8580-eee3-11ea-8212-0b86742a8baa.png">
+<img width="700" alt="스크린샷 2020-09-06 오전 9 50 20" src="https://user-images.githubusercontent.com/49704910/92316453-43369080-f02f-11ea-8680-d5bb56243219.png">
   </p>
 
-디스플레이상에서 현재 위치, 해당 위치에서 판매되는 추천 물품 리스트를 확인할 수 있다. 또한 특정 물건 검색 기능을 사용할 수 있다.
-
-
+디스플레이상에서 현재 위치, 해당 위치에서 판매되는 추천 물품 리스트를 확인할 수 있다. 
 
 
 
@@ -56,7 +68,7 @@
 <h4 align="center"> [ 위치 특정 알고리즘 ] </h4> 
 
 <p align="center">
-<img width="278" alt="스크린샷 2020-08-28 오후 8 07 05" src="https://user-images.githubusercontent.com/49704910/91554468-254f9880-e96a-11ea-84c6-75215ab61499.png">
+<img width="250" alt="스크린샷 2020-08-28 오후 8 07 05" src="https://user-images.githubusercontent.com/49704910/92315901-6b21f600-f027-11ea-9aed-f2f72661999f.png">
   </p>
   
 위치 A,B,C,D에 해당하는 비콘값은 A={1,2,3,4} B={2,3,5,6} C= {4,5,7,8} D={5,6,8,9}이다. 
@@ -66,6 +78,17 @@
 4) 가장 높은 유사도를 갖는 영역을 현재 영역으로 판단.  (단, 75%미만일 경우나 다른 예외상황에서는 위치를 갱신하지 않음) 
 5) 5초 단위 싸이클로 반복
 
+
+
+<h4 align="center"> [ 사용자의 시간당 위치 데이터 획득 ] </h4> 
+<p align="center">
+<img width="550" alt="스크린샷 2020-08-28 오후 8 07 05" src="https://user-images.githubusercontent.com/49704910/92315715-e8983700-f024-11ea-8307-53d33ecdc589.png">
+  </p>
+매장의 매대관리를 돕기 위해 사람들이 어느 구역을 얼마나 이용했는지에 대한 데이터를 서버로 전송하는 시스템.
+
+
+## 구현사항(가산점)
+ Peripheral GPIO (LED, 블루투스 이용)
 
 
 
