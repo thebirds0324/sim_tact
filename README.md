@@ -104,6 +104,5 @@
   
 
 ## 구현사항(가산점)
-GPIO : 비콘 스캔 초기화시 LED 점등 
-(sim_tact/real_BLE/src/real_ble.c 18번째 줄~)
+GPIO : 비콘 스캔 초기화시 LED 점등
 
