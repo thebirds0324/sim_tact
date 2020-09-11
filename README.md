@@ -24,9 +24,6 @@
 * 최현경 : HW개발
 * 박민아 : HW 디버깅, 아두이노(비콘) 
 
-<p align="center">
-<img width="500" alt="KakaoTalk_20200906_104108646_01" src="https://user-images.githubusercontent.com/52956065/92316384-2b124180-f02e-11ea-8944-ba0339174f20.jpg">
-  </p>
 
 ## 프로젝트 목적 
 <p align="center">
