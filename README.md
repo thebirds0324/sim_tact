@@ -1,13 +1,13 @@
-### 2020 서울 하드웨어 해커톤 sim_tact 팀
+### 2020 Seoul Hardware Hackathon: Team Sim_tact
 <p align="center">
 <img width="300" alt="KakaoTalk_20200906_112959566" src="https://user-images.githubusercontent.com/52956065/92316838-729bcc00-f034-11ea-80f7-0cc03be555d2.png">
   </p>
 
-## 시연 동영상
+## Demonstration video
 [![Watch the video](https://user-images.githubusercontent.com/52956065/92318294-fb226880-f044-11ea-82eb-ee0660d4ead9.png)](https://youtu.be/euSKnWlC29Q)
 
 
-나만의 쇼핑 광고판 Mynage
+나만의 쇼핑 광고판 Mynage (Mynage: 
 ============= 
 언택트 시대에 필요한 기술로 저희는 Mynage(마이니지)를 제안합니다. 마이니지는 My와 Signage의 합성어로, 카트에 부착하여 사용하는 위치 기반의 판촉 시스템입니다.  
 &nbsp;
