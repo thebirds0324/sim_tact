@@ -7,7 +7,7 @@
 [![Watch the video](https://user-images.githubusercontent.com/52956065/92318294-fb226880-f044-11ea-82eb-ee0660d4ead9.png)](https://youtu.be/euSKnWlC29Q)
 
 
-Personalised shopping advertisement board Mynage (Mynage: 
+Personalised shopping advertisement board Mynage (Mynage: My + Signage)
 ============= 
 We propose Mynage, a brand new advertising technology in untact era. Mynage is a compound word of My and Signage. It is a location-based ad system. Attatched to a cart, it shows the personalised ad based on the customer's location in the mall.
 &nbsp;
